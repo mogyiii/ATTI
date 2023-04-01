@@ -1,0 +1,76 @@
+.tabbed {
+    width: 700px;
+    margin: 50px auto;
+}
+
+.tabs-nav>div>input {
+    display: none;
+}
+
+.tabs-nav>div>label {
+    display: block;
+    float: left;
+    padding: 12px 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tabs-nav>div>label:hover,
+.tabs-nav>div>input:checked+label {
+    background: rgb(241, 241, 241);
+    color: black;
+    border-left: 5px solid black;
+}
+
+.tabs {
+    clear: both;
+    perspective: 600px;
+}
+
+.tabs>div {
+    width: 700px;
+    position: absolute;
+    padding: 10px 30px 40px;
+    line-height: 1.4em;
+    opacity: 0;
+    left: 30%;
+    top: 400px;
+    transform-origin: top center;
+    transition: opacity 0.3s, transform 1s;
+    z-index: 0;
+    transition: .3s;
+}
+
+.checked-tab {
+    top: -150px !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+}
+.tabs-nav{
+    float: left;
+}
+
+@media screen and (max-width: 700px) {
+    .tabbed {
+        width: 400px;
+    }
+
+    .tabs-nav>div>label {
+        display: none;
+    }
+
+    .tabs>div {
+        width: 400px;
+        border: none;
+        padding: 0;
+        opacity: 1;
+        position: relative;
+        transform: none;
+        margin-bottom: 60px;
+    }
+
+    .tabs>div h2 {
+        padding-bottom: 0.5em;
+    }
+}

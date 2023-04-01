@@ -1,13 +1,16 @@
-html, body{
+html,
+body {
     /* font-family: 'Roboto', sans-serif; */
     font-family: 'PT Sans', sans-serif;
 }
-.menu{
+
+.menu {
     height: 60px;
     line-height: 60px;
     text-align: justify;
 }
-.menu-container{
+
+.menu-container {
     position: fixed;
     background-color: rgb(246, 246, 246);
     color: rgb(29, 29, 29) !important;
@@ -16,72 +19,105 @@ html, body{
     transition: .2s;
     z-index: 99;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 a:link {
     color: rgb(234, 234, 234);
 }
+
 a:visited {
     color: rgb(234, 234, 234);
 }
+
 a:hover {
     color: rgb(234, 234, 234);
 }
+
 a:active {
     color: rgb(234, 234, 234);
 }
-.slider{
+
+.slider {
     position: absolute;
     z-index: -1;
     width: 100%;
     overflow: hidden;
 }
-.bg-images{
+
+.bg-images {
     height: 550px;
     width: 100vw;
     object-fit: cover;
     object-position: center;
     opacity: .6;
 }
-.header-text{
+
+.header-text {
     font-size: .9em;
     color: rgb(234, 234, 234);
 }
-.header-images-content{
+
+.header-images-content {
     padding-top: 150px !important;
     color: rgb(234, 234, 234);
 }
-.row-what-we-do{
+
+.row-what-we-do {
     margin-top: 175px;
     color: rgb(234, 234, 234);
-    
+    background-color: transparent;
+    height: 500px;
+}
+
+.row-what-we-do-background {
     background: url('../images/istockphoto-1063723682-2048x2048.jpg') rgb(255, 195, 41);
-    background-position: 40% 40%;
+    background-position: 30% 36%;
     background-size: cover;
     background-blend-mode: multiply;
     height: 250px;
+    position: relative;
+
 }
-.row-us-works{
+
+.row-what-we-do-content {
+    position: absolute;
+    width: 100%;
+}
+
+.row-us-works {
     margin-top: 300px;
     color: rgb(211, 211, 211);
     background-color: rgb(30, 30, 30);
-    height: 350px;
-}.row-gallery-line{
+    height: 500px;
+    padding-top: 1px;
+    overflow: hidden;
+}
+
+.row-gallery-line {
     color: rgb(234, 234, 234);
-    
+
     background: url('../images/pexels-jiyoung-kim-4513940.jpg') rgb(255, 195, 41);
     background-position: 40% 40%;
     background-size: cover;
     background-blend-mode: multiply;
     background-attachment: fixed;
-    height: 350px;
+    height: 250px;
 
-}.row-about-us{
-    height: 150px;
 }
-.worker-img{
-    float: left;
-    width: 350px;
-    margin: 15px;
+
+.row-about-us {
+    height: 600px;
+}
+
+.row-about-us-images {
+    
+    background-position: 40% 40%;
+    background-size: cover;
+    background-blend-mode: multiply;
+
+    width: 100%;
+    height: 150px;
 }
