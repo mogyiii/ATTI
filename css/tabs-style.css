@@ -1,6 +1,5 @@
 .tabbed {
-    width: 700px;
-    margin: 50px auto;
+    width: 100%;
 }
 
 .tabs-nav>div>input {
@@ -34,7 +33,7 @@
     padding: 10px 30px 40px;
     line-height: 1.4em;
     opacity: 0;
-    left: 30%;
+    left: 20%;
     top: 400px;
     transform-origin: top center;
     transition: opacity 0.3s, transform 1s;
@@ -43,7 +42,7 @@
 }
 
 .checked-tab {
-    top: -150px !important;
+    top: -190px !important;
     opacity: 1 !important;
     z-index: 1 !important;
 }
