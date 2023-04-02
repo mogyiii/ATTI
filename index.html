@@ -23,12 +23,24 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="css/tabs-style.css">
+    <link rel="stylesheet" href="css/dropdown-style.css">
     <script>
 
         $(document).ready(function () {
             $("#tab-nav-1").prop('checked', true);
             $("#tab-1:first").addClass("checked-tab");
             let slideIndex = 1;
+            var touched = Date.now();
+            setInterval(function () {
+                if(getElapsedTime() > 5){
+                    if(slideIndex == $(".img-slides").length){
+                        slideIndex = 1
+                    }else{
+                        slideIndex++;
+                    }
+                    showSlides(slideIndex);
+                }
+            }, 5000);
             showSlides(slideIndex);
 
             $('#prev, #next').click(function () {
@@ -66,12 +78,20 @@
             function showSlides(n) {
                 let slides = $(".img-slides");
                 let dots = $(".dot");
+                touched = Date.now();
                 if (n > slides.length) { slideIndex = 1 }
                 if (n < 1) { slideIndex = slides.length }
                 slides.hide();
                 dots.removeClass("active");
                 slides.eq(slideIndex - 1).show();
                 dots.eq(slideIndex - 1).addClass("active");
+            }
+
+            function getElapsedTime() {
+                let now = Date.now();
+
+                let elapsed = now - touched;
+                return (elapsed / 1000);
             }
 
         });
@@ -83,24 +103,28 @@
         <div class="slideshow-container">
 
             <div class="img-slides emerges">
-                <div class="numbertext">1 / 4</div>
-                <img src="images/istockphoto-1205700615-2048x2048.jpg" class="bg-images">
+                <div class="numbertext">1 / 5</div>
+                <img src="images/fejlec1.jpg" class="bg-images">
             </div>
 
             <div class="img-slides emerges">
-                <div class="numbertext">2 / 4</div>
-                <img src="images/istockphoto-1226955447-2048x2048.jpg" class="bg-images">
+                <div class="numbertext">2 / 5</div>
+                <img src="images/fejlec2.jpg" class="bg-images">
 
             </div>
 
             <div class="img-slides emerges">
-                <div class="numbertext">3 / 4</div>
-                <img src="images/istockphoto-1318801715-2048x2048.jpg" class="bg-images">
+                <div class="numbertext">3 / 5</div>
+                <img src="images/fejlec3.jpg" class="bg-images">
             </div>
 
             <div class="img-slides emerges">
-                <div class="numbertext">4 / 4</div>
-                <img src="images/istockphoto-940251778-2048x2048.jpg" class="bg-images">
+                <div class="numbertext">4 / 5</div>
+                <img src="images/fejlec4.jpg" class="bg-images">
+            </div>
+            <div class="img-slides emerges">
+                <div class="numbertext">5 / 5</div>
+                <img src="images/fejlec5.jpg" class="bg-images">
             </div>
         </div>
 
@@ -111,6 +135,7 @@
         <span class="dot" data-index="2"></span>
         <span class="dot" data-index="3"></span>
         <span class="dot" data-index="4"></span>
+        <span class="dot" data-index="5"></span>
     </div>
     <a class="prev" id="prev">❮</a>
     <a class="next" id="next">❯</a>
@@ -133,10 +158,10 @@
                             </span>
                         </div>
                         <div class="col-4">
-                            <span><i class="fa-solid fa-phone py-1 px-1 text-center"></i>+36 30 222 01 01</span>
+                            <span><i class="fa-solid fa-phone py-1 px-1 text-center"></i>+36 20 503 7107</span>
                         </div>
                         <div class="col-4">
-                            <span><i class="fa-regular fa-envelope py-1 px-1 text-center"></i>info@teszt.hu</span>
+                            <span><i class="fa-regular fa-envelope py-1 px-1 text-center"></i>info@origouniverzal.hu</span>
                         </div>
                     </div>
                 </div>
@@ -147,12 +172,20 @@
         <div class="container">
             <div class="row menu header-text">
                 <div class="col-4">
-                    <h1>Logo</h1>
+                    <img src="images/Logó 2017.jpg" width="160">
                 </div>
                 <div class="col-8 text-uppercase">
                     <div class="row">
                         <div class="col-3 top-50 text-center border-right border-secondary">
                             <a href="#">Referenciáink</a>
+                        </div>
+                        <div class="col-3 top-50 text-center border-right border-secondary">
+                            <a href="#">Tevékenységeink</a>
+                            <div class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                              </div>
                         </div>
                         <div class="col-3 top-50 text-center border-right border-secondary">
                             <a href="#">Rólunk</a>
@@ -169,7 +202,7 @@
         <div class="container">
             <div class="row menu">
                 <div class="col-4">
-                    <h1>Logo</h1>
+                    <img src="images/Logó 2017.jpg" width="150">
                 </div>
                 <div class="col-8 text-uppercase">
                     <div class="row">
@@ -262,7 +295,7 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <img src="images/persons.jpg" width="100%">
+                    <img src="images/rolunk.jpg" width="100%">
                 </div>
                 <div class="col-6">
                     <div class="row">
@@ -270,13 +303,7 @@
                             <div class="row-about-us-images"
                                 style="background-image: url('/images/companyhistory.jpg');"></div>
                             <h5 class="text-uppercase mt-3 mb-3">Cég történelme</h5>
-                            <p>Vivamus convallis posuere risus eget venenatis. Fusce maximus pulvinar magna, quis
-                                volutpat sem
-                                volutpat non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                                inceptos
-                                himenaeos. Fusce nunc metus, tristique eu erat aliquam, dignissim molestie orci. Ut
-                                vestibulum
-                                mollis turpis. Ut in odio velit. </p>
+                            <p>Több évtizedes építőipari gyakorlat után 2012 februárjában alapítottuk meg családi vállalkozásunkat, az Origo Univerzál Kft.-t. Cégünk azóta is változatlan tulajdonosi szerkezettel rendelkezik, tevékenykedik. Fő tevékenységünk kezdetben térburkolatok készítése volt, mely tevékenységi kör az elmúlt években családi ház építéssel, felújítással és szerkezetépítéssel bővült. Munkatársaink rugalmassága lehetővé teszi mikro-, kis-, és közepes méretű projektek kivitelezését is.</p>
                         </div>
                     </div>
                     <div class="row">
@@ -284,17 +311,13 @@
                             <div class="row-about-us-images" style="background-image: url('/images/ourmission.jpg');">
                             </div>
                             <h5 class="text-uppercase mt-3 mb-3">Géppark</h5>
-                            <p>Vivamus convallis posuere risus eget venenatis. Fusce maximus pulvinar magna, quis
-                                volutpat sem
-                                volutpat non. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+                            <p>Vállalkozásunk gépparkjában rendelkezésünkre áll minden olyan eszköz, amely a magasfokú kivitelezéshez elengedhetetlen.</p>
                         </div>
                         <div class="col-6">
                             <div class="row-about-us-images"
                                 style="background-image: url('/images/consultation23.jpg');"></div>
-                            <h5 class="text-uppercase mt-3 mb-3">Kapcsolatiháló</h5>
-                            <p>Vivamus convallis posuere risus eget venenatis. Fusce maximus pulvinar magna, quis
-                                volutpat sem
-                                volutpat non. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+                            <h5 class="text-uppercase mt-3 mb-3">Kapcsolati háló</h5>
+                            <p>Cégünk szakemberei több évtizedes szakmai karrierjük során jelentős kapcsolati tőkét halmoztak fel.</p>
                         </div>
                     </div>
                 </div>
@@ -305,67 +328,80 @@
 
     <div class="row-us-works">
         <div class="container">
-            <div class="tabbed">
-                <div class="tabs-nav">
-                    <div>
-                        <input type="radio" name="tabs" id="tab-nav-1" data-id="tab-1">
-                        <label for="tab-nav-1">General kivitelezés</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="tabs" id="tab-nav-2" data-id="tab-2">
-                        <label for="tab-nav-2">Szerkezet építés</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="tabs" id="tab-nav-3" data-id="tab-3">
-                        <label for="tab-nav-3">Útépítés</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="tabs" id="tab-nav-4" data-id="tab-4">
-                        <label for="tab-nav-4">Ipari pablók</label>
-                    </div>
-                </div>
-
-                <div class="tabs">
-                    <div id="tab-1">
-                        <h2>General kivitelezés</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla tortor, a posuere
-                            urna. Praesent urna quam, semper ut ultricies et, mollis ac elit. </p>
-                    </div>
-                    <div id="tab-2">
-                        <h2>Szerkezet építés</h2>
-                        <p>Maecenas dictum, urna ut consequat condimentum, est dui commodo diam, ac pretium dui ante eu
-                            quam. Curabitur posuere metus nec tellus venenatis placerat. Ut egestas neque in odio
-                            vulputate gravida. In at justo ac est laoreet eleifend vel quis arcu. Aliquam erat volutpat.
-                            Proin vitae vehicula neque. Nam tempus erat ac ante tincidunt tincidunt. Pellentesque eu
-                            nibh sapien. Nunc augue magna, lacinia eget congue eget, mattis id tortor. Fusce id
-                            vestibulum neque. Proin tincidunt tellus ut risus lobortis cursus. Duis sit amet urna vel
-                            sapien ullamcorper varius.</p>
-                    </div>
-                    <div id="tab-3">
-                        <h2>Útépítés</h2>
-                        <p>Duis luctus dolor ac erat luctus hendrerit. Aenean id congue magna. Proin sit amet elit vel
-                            lacus ornare dignissim imperdiet nec odio. Maecenas condimentum egestas lorem et laoreet.
-                            Donec ut leo non purus rutrum euismod vel faucibus nunc. Curabitur vel mauris nisi, vitae
-                            laoreet erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum
-                            primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas ipsum odio,
-                            iaculis id vulputate vitae, vestibulum at nunc. Integer non nisl lorem. Quisque lobortis
-                            congue semper. Nunc neque nisi, consequat id egestas vitae, porta vel sem.</p>
-                    </div>
-                    <div id="tab-4">
-                        <h2>Ipari pablók</h2>
-                        <p>Fusce vel eros eu lectus ultricies fermentum vestibulum adipiscing odio. Suspendisse
-                            ultricies, metus nec dapibus pharetra, quam arcu vulputate nisl, a pretium nisi velit id
-                            ante. Nunc auctor augue sit amet orci vestibulum id placerat nulla pellentesque. Duis vel
-                            quam velit. Ut auctor ipsum quis lacus semper non pretium mi dignissim. Morbi ultrices augue
-                            eget nisi hendrerit placerat. Mauris rhoncus urna quis metus congue quis condimentum risus
-                            interdum. Nam lobortis lectus et enim laoreet mattis. Integer faucibus ullamcorper erat, at
-                            rhoncus leo bibendum sed. Mauris libero urna, placerat non pretium ac, elementum et arcu.
-                            Aliquam non tellus diam, vel scelerisque odio. Etiam a quam et enim vehicula feugiat posuere
-                            at dui. Phasellus at nisl quam. Integer nisi mi, varius vitae placerat viverra, dapibus
-                            vitae massa. Nullam ut orci vitae nisi ornare aliquam in eget orci.</p>
-                    </div>
+            <div class="row">
+                <div class="col-12 mt-4">
+                    <h3>Tevékenységeink</h3>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="tabbed">
+                        <div class="tabs-nav">
+                            <div>
+                                <input type="radio" name="tabs" id="tab-nav-1" data-id="tab-1">
+                                <label for="tab-nav-1">General kivitelezés</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="tabs" id="tab-nav-2" data-id="tab-2">
+                                <label for="tab-nav-2">Szerkezet építés</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="tabs" id="tab-nav-3" data-id="tab-3">
+                                <label for="tab-nav-3">Útépítés</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="tabs" id="tab-nav-4" data-id="tab-4">
+                                <label for="tab-nav-4">Ipari pablók</label>
+                            </div>
+                        </div>
+        
+                        <div class="tabs">
+                            <div id="tab-1">
+                                <h2>General kivitelezés</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla tortor, a posuere
+                                    urna. Praesent urna quam, semper ut ultricies et, mollis ac elit. </p>
+                            </div>
+                            <div id="tab-2">
+                                <h2>Szerkezet építés</h2>
+                                <p>Maecenas dictum, urna ut consequat condimentum, est dui commodo diam, ac pretium dui ante eu
+                                    quam. Curabitur posuere metus nec tellus venenatis placerat. Ut egestas neque in odio
+                                    vulputate gravida. In at justo ac est laoreet eleifend vel quis arcu. Aliquam erat volutpat.
+                                    Proin vitae vehicula neque. Nam tempus erat ac ante tincidunt tincidunt. Pellentesque eu
+                                    nibh sapien. Nunc augue magna, lacinia eget congue eget, mattis id tortor. Fusce id
+                                    vestibulum neque. Proin tincidunt tellus ut risus lobortis cursus. Duis sit amet urna vel
+                                    sapien ullamcorper varius.</p>
+                            </div>
+                            <div id="tab-3">
+                                <h2>Útépítés</h2>
+                                <p>Duis luctus dolor ac erat luctus hendrerit. Aenean id congue magna. Proin sit amet elit vel
+                                    lacus ornare dignissim imperdiet nec odio. Maecenas condimentum egestas lorem et laoreet.
+                                    Donec ut leo non purus rutrum euismod vel faucibus nunc. Curabitur vel mauris nisi, vitae
+                                    laoreet erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum
+                                    primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas ipsum odio,
+                                    iaculis id vulputate vitae, vestibulum at nunc. Integer non nisl lorem. Quisque lobortis
+                                    congue semper. Nunc neque nisi, consequat id egestas vitae, porta vel sem.</p>
+                            </div>
+                            <div id="tab-4">
+                                <h2>Ipari pablók</h2>
+                                <p>Fusce vel eros eu lectus ultricies fermentum vestibulum adipiscing odio. Suspendisse
+                                    ultricies, metus nec dapibus pharetra, quam arcu vulputate nisl, a pretium nisi velit id
+                                    ante. Nunc auctor augue sit amet orci vestibulum id placerat nulla pellentesque. Duis vel
+                                    quam velit. Ut auctor ipsum quis lacus semper non pretium mi dignissim. Morbi ultrices augue
+                                    eget nisi hendrerit placerat. Mauris rhoncus urna quis metus congue quis condimentum risus
+                                    interdum. Nam lobortis lectus et enim laoreet mattis. Integer faucibus ullamcorper erat, at
+                                    rhoncus leo bibendum sed. Mauris libero urna, placerat non pretium ac, elementum et arcu.
+                                    Aliquam non tellus diam, vel scelerisque odio. Etiam a quam et enim vehicula feugiat posuere
+                                    at dui. Phasellus at nisl quam. Integer nisi mi, varius vitae placerat viverra, dapibus
+                                    vitae massa. Nullam ut orci vitae nisi ornare aliquam in eget orci.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+
+                </div>
+            </div>
+            
         </div>
     </div>
 </body>
