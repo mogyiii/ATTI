@@ -32,10 +32,10 @@
             let slideIndex = 1;
             var touched = Date.now();
             setInterval(function () {
-                if(getElapsedTime() > 5){
-                    if(slideIndex == $(".img-slides").length){
+                if (getElapsedTime() > 5) {
+                    if (slideIndex == $(".img-slides").length) {
                         slideIndex = 1
-                    }else{
+                    } else {
                         slideIndex++;
                     }
                     showSlides(slideIndex);
@@ -161,7 +161,8 @@
                             <span><i class="fa-solid fa-phone py-1 px-1 text-center"></i>+36 20 503 7107</span>
                         </div>
                         <div class="col-4">
-                            <span><i class="fa-regular fa-envelope py-1 px-1 text-center"></i>info@origouniverzal.hu</span>
+                            <span><i
+                                    class="fa-regular fa-envelope py-1 px-1 text-center"></i>info@origouniverzal.hu</span>
                         </div>
                     </div>
                 </div>
@@ -172,7 +173,7 @@
         <div class="container">
             <div class="row menu header-text">
                 <div class="col-4">
-                    <img src="images/Logó 2017.jpg" width="160">
+                    <img src="images/Logó 2017.png" width="160">
                 </div>
                 <div class="col-8 text-uppercase">
                     <div class="row">
@@ -185,8 +186,8 @@
                                 <a href="#" class="text-dark">General kivitelezés</a>
                                 <a href="#" class="text-dark">Szerkezet építés</a>
                                 <a href="#" class="text-dark">Útépítés</a>
-                                <a href="#" class="text-dark">Ipari pablók</a>
-                              </div>
+                                <a href="#" class="text-dark">Ipari padlók</a>
+                            </div>
                         </div>
                         <div class="col-3 top-50 text-center border-right border-secondary">
                             <a href="#">Rólunk</a>
@@ -203,7 +204,7 @@
         <div class="container">
             <div class="row menu">
                 <div class="col-4">
-                    <img src="images/Logó 2017.jpg" width="150">
+                    <img src="images/Logó 2017.png" width="150">
                 </div>
                 <div class="col-8 text-uppercase">
                     <div class="row">
@@ -216,8 +217,8 @@
                                 <a href="#" class="text-dark">General kivitelezés</a>
                                 <a href="#" class="text-dark">Szerkezet építés</a>
                                 <a href="#" class="text-dark">Útépítés</a>
-                                <a href="#" class="text-dark">Ipari pablók</a>
-                              </div>
+                                <a href="#" class="text-dark">Ipari padSlók</a>
+                            </div>
                         </div>
                         <div class="col-3 text-center border-right border-secondary">
                             <a href="#" class="text-dark">Rólunk</a>
@@ -230,7 +231,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid slider-text">
         <div class="container">
             <div class="row header-images-content">
                 <div class="col-12 primary-color">
@@ -247,55 +248,7 @@
 
         </div>
     </div>
-    <div class="row-what-we-do">
-        <div class="row-what-we-do-background">
-            <div class="row-what-we-do-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 mt-4">
-                            <h3>Mivel foglalkozunk</h3>
-                        </div>
-                    </div>
-                    <div class="row text-dark">
-                        <div class="col-4 mt-5">
-                            <img src="images/consultation21.jpg" width="100%">
-                            <div class="container">
-                                <h5 class="font-weight-bold mt-3 border-bottom border-secondary">Praesent lectus arcu
-                                </h5>
-                                <h6 class="text-uppercase mt-3 text-secondary">Suscipit a sem at</h6>
-                                <h6 class="mt-4 text-secondary">Porttitor congue urna. Proin dapibus dui sit amet sapien
-                                    tempor
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="col-4 mt-5">
-                            <img src="images/consultation22.jpg" width="100%">
-                            <div class="container">
-                                <h5 class="font-weight-bold mt-3 border-bottom border-secondary">Praesent lectus arcu
-                                </h5>
-                                <h6 class="text-uppercase mt-3 text-secondary">Suscipit a sem at</h6>
-                                <h6 class="mt-4 text-secondary">Porttitor congue urna. Proin dapibus dui sit amet sapien
-                                    tempor
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="col-4 mt-5">
-                            <img src="images/consultation23.jpg" width="100%">
-                            <div class="container">
-                                <h5 class="font-weight-bold mt-3 border-bottom border-secondary">Praesent lectus arcu
-                                </h5>
-                                <h6 class="text-uppercase mt-3 text-secondary">Suscipit a sem at</h6>
-                                <h6 class="mt-4 text-secondary">Porttitor congue urna. Proin dapibus dui sit amet sapien
-                                    tempor
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row-gallery-line"></div>
+    <div class="slider-split"></div>
     <div class="row-about-us">
         <div class="container">
             <div class="row">
@@ -313,7 +266,12 @@
                             <div class="row-about-us-images"
                                 style="background-image: url('/images/companyhistory.jpg');"></div>
                             <h5 class="text-uppercase mt-3 mb-3">Cég történelme</h5>
-                            <p>Több évtizedes építőipari gyakorlat után 2012 februárjában alapítottuk meg családi vállalkozásunkat, az Origo Univerzál Kft.-t. Cégünk azóta is változatlan tulajdonosi szerkezettel rendelkezik, tevékenykedik. Fő tevékenységünk kezdetben térburkolatok készítése volt, mely tevékenységi kör az elmúlt években családi ház építéssel, felújítással és szerkezetépítéssel bővült. Munkatársaink rugalmassága lehetővé teszi mikro-, kis-, és közepes méretű projektek kivitelezését is.</p>
+                            <p>Több évtizedes építőipari gyakorlat után 2012 februárjában alapítottuk meg családi
+                                vállalkozásunkat, az Origo Univerzál Kft.-t. Cégünk azóta is változatlan tulajdonosi
+                                szerkezettel rendelkezik, tevékenykedik. Fő tevékenységünk kezdetben térburkolatok
+                                készítése volt, mely tevékenységi kör az elmúlt években családi ház építéssel,
+                                felújítással és szerkezetépítéssel bővült. Munkatársaink rugalmassága lehetővé teszi
+                                mikro-, kis-, és közepes méretű projektek kivitelezését is.</p>
                         </div>
                     </div>
                     <div class="row">
@@ -321,13 +279,15 @@
                             <div class="row-about-us-images" style="background-image: url('/images/ourmission.jpg');">
                             </div>
                             <h5 class="text-uppercase mt-3 mb-3">Géppark</h5>
-                            <p>Vállalkozásunk gépparkjában rendelkezésünkre áll minden olyan eszköz, amely a magasfokú kivitelezéshez elengedhetetlen.</p>
+                            <p>Vállalkozásunk gépparkjában rendelkezésünkre áll minden olyan eszköz, amely a magasfokú
+                                kivitelezéshez elengedhetetlen.</p>
                         </div>
                         <div class="col-6">
                             <div class="row-about-us-images"
                                 style="background-image: url('/images/consultation23.jpg');"></div>
                             <h5 class="text-uppercase mt-3 mb-3">Kapcsolati háló</h5>
-                            <p>Cégünk szakemberei több évtizedes szakmai karrierjük során jelentős kapcsolati tőkét halmoztak fel.</p>
+                            <p>Cégünk szakemberei több évtizedes szakmai karrierjük során jelentős kapcsolati tőkét
+                                halmoztak fel.</p>
                         </div>
                     </div>
                 </div>
@@ -335,7 +295,149 @@
             </div>
         </div>
     </div>
+    <div class="row-gallery-line"></div>
+    <div class="references">
+        <div class="container">
+            <div class="row">
+                <div class="col-12  mt-4 mb-3">
+                    <h3>Referenciáink</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-4">
+                    <div class="tabbed">
+                        <div class="tabs-nav">
+                            <div>
+                                <input type="radio" name="tabgalleries" id="tab-gallery-nav-1" data-id="tab-gallery-1">
+                                <label for="tab-gallery-nav-1">Aszfaltozás-Bátonyterenye</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="tabgalleries" id="tab-gallery-nav-2" data-id="tab-gallery-2">
+                                <label for="tab-gallery-nav-2">Csarnoképítés-Nyírbátor</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="tabgalleries" id="tab-gallery-nav-3" data-id="tab-gallery-3">
+                                <label for="tab-gallery-nav-3">Díszburkolás-Nagykovácsi Szent Anna utca</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="tatabgalleries" id="tab-gallery-nav-4" data-id="tab-gallery-4">
+                                <label for="tab-gallery-nav-4">Felújítás-Budapest VI. kerület</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="tatabgalleries" id="tab-gallery-nav-5" data-id="tab-gallery-5">
+                                <label for="tab-gallery-nav-5">Generálkivitelezés-Érd</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="tatabgalleries" id="tab-gallery-nav-6" data-id="tab-gallery-6">
+                                <label for="tab-gallery-nav-6">Szerkezetépítés-Budapest, Gergely utca</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="tatabgalleries" id="tab-gallery-nav-7" data-id="tab-gallery-7">
+                                <label for="tab-gallery-nav-7">Térburkolás-Tatabánya</label>
+                            </div>
+                        </div>
+        
+                        <div class="tabgalleries">
+                            <div id="tab-gallery-1">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h3>Aszfaltozás-Bátonyterenye</h3>
+                                        <p>Szöveg...</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <section class="gallery">
+                                            <div class="gallery__item">
+                                                <input type="radio" id="img-1" checked name="gallery" class="gallery__selector" />
+                                                <img class="gallery__img"
+                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/8.jpg"
+                                                    width="650" height="400" alt="" />
+                                                <label for="img-1" class="gallery__thumb"><img
+                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/8.jpg"
+                                                        width="150" alt="" /></label>
+                                            </div>
+                                            <div class="gallery__item">
+                                                <input type="radio" id="img-2" name="gallery" class="gallery__selector" />
+                                                <img class="gallery__img"
+                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/1.jpg"
+                                                    width="650" height="400" alt="" />
+                                                <label for="img-2" class="gallery__thumb"><img
+                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/1.jpg"
+                                                        width="150" alt="" /></label>
+                                            </div>
+                                            <div class="gallery__item">
+                                                <input type="radio" id="img-3" name="gallery" class="gallery__selector" />
+                                                <img class="gallery__img"
+                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/2.jpg"
+                                                    width="650" height="400" alt="" />
+                                                <label for="img-3" class="gallery__thumb"><img
+                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/2.jpg"
+                                                        width="150" alt="" /></label>
+                                            </div>
+                                            <div class="gallery__item">
+                                                <input type="radio" id="img-4" name="gallery" class="gallery__selector" />
+                                                <img class="gallery__img"
+                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/3.jpg"
+                                                    width="650" height="400" alt="" />
+                                                <label for="img-4" class="gallery__thumb"><img
+                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/3.jpg"
+                                                        width="150" alt="" /></label>
+                                            </div>
+                                            <div class="gallery__item">
+                                                <input type="radio" id="img-5" name="gallery" class="gallery__selector" />
+                                                <img class="gallery__img"
+                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/4.jpg"
+                                                    width="650" height="400" alt="" />
+                                                <label for="img-5" class="gallery__thumb"><img
+                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/4.jpg"
+                                                        width="150" alt="" /></label>
+                                            </div>
+                                            <div class="gallery__item">
+                                                <input type="radio" id="img-6" name="gallery" class="gallery__selector" />
+                                                <img class="gallery__img"
+                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/5.jpg"
+                                                    width="650" height="400" alt="" />
+                                                <label for="img-6" class="gallery__thumb"><img
+                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/5.jpg"
+                                                        width="150" alt="" /></label>
+                                            </div>
+                                            <div class="gallery__item">
+                                                <input type="radio" id="img-7" name="gallery" class="gallery__selector" />
+                                                <img class="gallery__img"
+                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/6.jpg"
+                                                    width="650" height="400" alt="" />
+                                                <label for="img-7" class="gallery__thumb"><img
+                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/6.jpg"
+                                                        width="150" alt="" /></label>
+                                            </div>
+                                            <div class="gallery__item">
+                                                <input type="radio" id="img-8" name="gallery" class="gallery__selector" />
+                                                <img class="gallery__img"
+                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/7.jpg"
+                                                    width="650" height="400" alt="" />
+                                                <label for="img-8" class="gallery__thumb"><img
+                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/7.jpg"
+                                                        width="150" alt="" /></label>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-gallery-2">
+                                
+                            </div>
+                            <div id="tab-gallery-3">
+                                
+                            </div>
+                            <div id="tab-gallery-4">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
     <div class="row-us-works">
         <div class="container">
             <div class="row">
@@ -361,47 +463,67 @@
                             </div>
                             <div>
                                 <input type="radio" name="tabs" id="tab-nav-4" data-id="tab-4">
-                                <label for="tab-nav-4">Ipari pablók</label>
+                                <label for="tab-nav-4">Ipari padlók</label>
                             </div>
                         </div>
-        
+
                         <div class="tabs">
                             <div id="tab-1">
                                 <h2>General kivitelezés</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla tortor, a posuere
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla tortor, a
+                                    posuere
                                     urna. Praesent urna quam, semper ut ultricies et, mollis ac elit. </p>
                             </div>
                             <div id="tab-2">
                                 <h2>Szerkezet építés</h2>
-                                <p>Maecenas dictum, urna ut consequat condimentum, est dui commodo diam, ac pretium dui ante eu
-                                    quam. Curabitur posuere metus nec tellus venenatis placerat. Ut egestas neque in odio
-                                    vulputate gravida. In at justo ac est laoreet eleifend vel quis arcu. Aliquam erat volutpat.
-                                    Proin vitae vehicula neque. Nam tempus erat ac ante tincidunt tincidunt. Pellentesque eu
+                                <p>Maecenas dictum, urna ut consequat condimentum, est dui commodo diam, ac pretium dui
+                                    ante eu
+                                    quam. Curabitur posuere metus nec tellus venenatis placerat. Ut egestas neque in
+                                    odio
+                                    vulputate gravida. In at justo ac est laoreet eleifend vel quis arcu. Aliquam erat
+                                    volutpat.
+                                    Proin vitae vehicula neque. Nam tempus erat ac ante tincidunt tincidunt.
+                                    Pellentesque eu
                                     nibh sapien. Nunc augue magna, lacinia eget congue eget, mattis id tortor. Fusce id
-                                    vestibulum neque. Proin tincidunt tellus ut risus lobortis cursus. Duis sit amet urna vel
+                                    vestibulum neque. Proin tincidunt tellus ut risus lobortis cursus. Duis sit amet
+                                    urna vel
                                     sapien ullamcorper varius.</p>
                             </div>
                             <div id="tab-3">
                                 <h2>Útépítés</h2>
-                                <p>Duis luctus dolor ac erat luctus hendrerit. Aenean id congue magna. Proin sit amet elit vel
-                                    lacus ornare dignissim imperdiet nec odio. Maecenas condimentum egestas lorem et laoreet.
-                                    Donec ut leo non purus rutrum euismod vel faucibus nunc. Curabitur vel mauris nisi, vitae
-                                    laoreet erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum
-                                    primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas ipsum odio,
-                                    iaculis id vulputate vitae, vestibulum at nunc. Integer non nisl lorem. Quisque lobortis
+                                <p>Duis luctus dolor ac erat luctus hendrerit. Aenean id congue magna. Proin sit amet
+                                    elit vel
+                                    lacus ornare dignissim imperdiet nec odio. Maecenas condimentum egestas lorem et
+                                    laoreet.
+                                    Donec ut leo non purus rutrum euismod vel faucibus nunc. Curabitur vel mauris nisi,
+                                    vitae
+                                    laoreet erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+                                    ante ipsum
+                                    primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas ipsum
+                                    odio,
+                                    iaculis id vulputate vitae, vestibulum at nunc. Integer non nisl lorem. Quisque
+                                    lobortis
                                     congue semper. Nunc neque nisi, consequat id egestas vitae, porta vel sem.</p>
                             </div>
                             <div id="tab-4">
-                                <h2>Ipari pablók</h2>
+                                <h2>Ipari padlók</h2>
                                 <p>Fusce vel eros eu lectus ultricies fermentum vestibulum adipiscing odio. Suspendisse
-                                    ultricies, metus nec dapibus pharetra, quam arcu vulputate nisl, a pretium nisi velit id
-                                    ante. Nunc auctor augue sit amet orci vestibulum id placerat nulla pellentesque. Duis vel
-                                    quam velit. Ut auctor ipsum quis lacus semper non pretium mi dignissim. Morbi ultrices augue
-                                    eget nisi hendrerit placerat. Mauris rhoncus urna quis metus congue quis condimentum risus
-                                    interdum. Nam lobortis lectus et enim laoreet mattis. Integer faucibus ullamcorper erat, at
-                                    rhoncus leo bibendum sed. Mauris libero urna, placerat non pretium ac, elementum et arcu.
-                                    Aliquam non tellus diam, vel scelerisque odio. Etiam a quam et enim vehicula feugiat posuere
-                                    at dui. Phasellus at nisl quam. Integer nisi mi, varius vitae placerat viverra, dapibus
+                                    ultricies, metus nec dapibus pharetra, quam arcu vulputate nisl, a pretium nisi
+                                    velit id
+                                    ante. Nunc auctor augue sit amet orci vestibulum id placerat nulla pellentesque.
+                                    Duis vel
+                                    quam velit. Ut auctor ipsum quis lacus semper non pretium mi dignissim. Morbi
+                                    ultrices augue
+                                    eget nisi hendrerit placerat. Mauris rhoncus urna quis metus congue quis condimentum
+                                    risus
+                                    interdum. Nam lobortis lectus et enim laoreet mattis. Integer faucibus ullamcorper
+                                    erat, at
+                                    rhoncus leo bibendum sed. Mauris libero urna, placerat non pretium ac, elementum et
+                                    arcu.
+                                    Aliquam non tellus diam, vel scelerisque odio. Etiam a quam et enim vehicula feugiat
+                                    posuere
+                                    at dui. Phasellus at nisl quam. Integer nisi mi, varius vitae placerat viverra,
+                                    dapibus
                                     vitae massa. Nullam ut orci vitae nisi ornare aliquam in eget orci.</p>
                             </div>
                         </div>
@@ -411,10 +533,10 @@
                     <img src="images/worker2.jpg" width="100%">
                 </div>
             </div>
-            
+
         </div>
     </div>
-    
+
 </body>
 
 </html>
