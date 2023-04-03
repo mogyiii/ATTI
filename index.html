@@ -24,8 +24,18 @@
     <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="css/tabs-style.css">
     <link rel="stylesheet" href="css/dropdown-style.css">
+    <link rel="stylesheet" href="css/img-grid-style.css">
+    <link rel="stylesheet" href="css/image-viewer.css">
     <script>
-
+        var galleryList = [
+            { title: "Aszfaltozás-Bátonyterenye", imagePath: "Aszfaltozas-Batonyterenye", text: "" },
+            { title: "Csarnoképítés-Nyírbátor", imagePath: "Csarnokepites-Nyirbator", text: "" },
+            { title: "Díszburkolás-Nagykovácsi Szent Anna utca", imagePath: "Diszburkolas-Nagykovacsi_Szent_Anna_utca", text: "" },
+            { title: "Felújítás-Budapest VI. kerület", imagePath: "Felujitas-Budapest_VI._kerulet", text: "" },
+            { title: "Generálkivitelezés-Érd", imagePath: "Generalkivitelezes-Erd", text: "" },
+            { title: "Szerkezetépítés-Budapest, Gergely utca", imagePath: "Szerkezetepitws-Budapest_Gergely_utca", text: "" },
+            { title: "Térburkolás-Tatabánya", imagePath: "Terburkolas-Tatabanya", text: "" },
+        ];
         $(document).ready(function () {
             $("#tab-nav-1").prop('checked', true);
             $("#tab-1:first").addClass("checked-tab");
@@ -93,6 +103,27 @@
                 let elapsed = now - touched;
                 return (elapsed / 1000);
             }
+            $(".gallery-item").click(function () {
+                let galleryObj = galleryList[$(this).data("index")];
+                $("#gallery-title").text(galleryObj.title);
+                $("#gallery-text").text(galleryObj.text);
+                for (var i = 0; i <= 8; i++)
+                    $(`#gImg${i}`).attr("src", `./images/${galleryObj.imagePath}/${i + 1}.jpg`);
+
+                $(".gallery").css("margin-left", "5%")
+            });
+            $(".close-images").click(function () {
+                $(".gallery").css("margin-left", "-10000px")
+            });
+
+            $(".images-gallery img").click(function () {
+                $("#full-image").attr("src", $(this).attr("src"));
+                $('#image-viewer').show();
+            });
+
+            $("#image-viewer .close").click(function () {
+                $('#image-viewer').hide();
+            });
 
         });
     </script>
@@ -173,7 +204,7 @@
         <div class="container">
             <div class="row menu header-text">
                 <div class="col-4">
-                    <img src="images/Logó 2017.png" width="160">
+                    <img src="images/Logó 2017.png" class="logo">
                 </div>
                 <div class="col-8 text-uppercase">
                     <div class="row">
@@ -204,7 +235,7 @@
         <div class="container">
             <div class="row menu">
                 <div class="col-4">
-                    <img src="images/Logó 2017.png" width="150">
+                    <img src="images/Logó 2017.png" class="logo">
                 </div>
                 <div class="col-8 text-uppercase">
                     <div class="row">
@@ -305,133 +336,14 @@
             </div>
             <div class="row">
                 <div class="col-12 mt-4">
-                    <div class="tabbed">
-                        <div class="tabs-nav">
-                            <div>
-                                <input type="radio" name="tabgalleries" id="tab-gallery-nav-1" data-id="tab-gallery-1">
-                                <label for="tab-gallery-nav-1">Aszfaltozás-Bátonyterenye</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="tabgalleries" id="tab-gallery-nav-2" data-id="tab-gallery-2">
-                                <label for="tab-gallery-nav-2">Csarnoképítés-Nyírbátor</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="tabgalleries" id="tab-gallery-nav-3" data-id="tab-gallery-3">
-                                <label for="tab-gallery-nav-3">Díszburkolás-Nagykovácsi Szent Anna utca</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="tatabgalleries" id="tab-gallery-nav-4" data-id="tab-gallery-4">
-                                <label for="tab-gallery-nav-4">Felújítás-Budapest VI. kerület</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="tatabgalleries" id="tab-gallery-nav-5" data-id="tab-gallery-5">
-                                <label for="tab-gallery-nav-5">Generálkivitelezés-Érd</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="tatabgalleries" id="tab-gallery-nav-6" data-id="tab-gallery-6">
-                                <label for="tab-gallery-nav-6">Szerkezetépítés-Budapest, Gergely utca</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="tatabgalleries" id="tab-gallery-nav-7" data-id="tab-gallery-7">
-                                <label for="tab-gallery-nav-7">Térburkolás-Tatabánya</label>
-                            </div>
-                        </div>
-        
-                        <div class="tabgalleries">
-                            <div id="tab-gallery-1">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <h3>Aszfaltozás-Bátonyterenye</h3>
-                                        <p>Szöveg...</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <section class="gallery">
-                                            <div class="gallery__item">
-                                                <input type="radio" id="img-1" checked name="gallery" class="gallery__selector" />
-                                                <img class="gallery__img"
-                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/8.jpg"
-                                                    width="650" height="400" alt="" />
-                                                <label for="img-1" class="gallery__thumb"><img
-                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/8.jpg"
-                                                        width="150" alt="" /></label>
-                                            </div>
-                                            <div class="gallery__item">
-                                                <input type="radio" id="img-2" name="gallery" class="gallery__selector" />
-                                                <img class="gallery__img"
-                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/1.jpg"
-                                                    width="650" height="400" alt="" />
-                                                <label for="img-2" class="gallery__thumb"><img
-                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/1.jpg"
-                                                        width="150" alt="" /></label>
-                                            </div>
-                                            <div class="gallery__item">
-                                                <input type="radio" id="img-3" name="gallery" class="gallery__selector" />
-                                                <img class="gallery__img"
-                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/2.jpg"
-                                                    width="650" height="400" alt="" />
-                                                <label for="img-3" class="gallery__thumb"><img
-                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/2.jpg"
-                                                        width="150" alt="" /></label>
-                                            </div>
-                                            <div class="gallery__item">
-                                                <input type="radio" id="img-4" name="gallery" class="gallery__selector" />
-                                                <img class="gallery__img"
-                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/3.jpg"
-                                                    width="650" height="400" alt="" />
-                                                <label for="img-4" class="gallery__thumb"><img
-                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/3.jpg"
-                                                        width="150" alt="" /></label>
-                                            </div>
-                                            <div class="gallery__item">
-                                                <input type="radio" id="img-5" name="gallery" class="gallery__selector" />
-                                                <img class="gallery__img"
-                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/4.jpg"
-                                                    width="650" height="400" alt="" />
-                                                <label for="img-5" class="gallery__thumb"><img
-                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/4.jpg"
-                                                        width="150" alt="" /></label>
-                                            </div>
-                                            <div class="gallery__item">
-                                                <input type="radio" id="img-6" name="gallery" class="gallery__selector" />
-                                                <img class="gallery__img"
-                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/5.jpg"
-                                                    width="650" height="400" alt="" />
-                                                <label for="img-6" class="gallery__thumb"><img
-                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/5.jpg"
-                                                        width="150" alt="" /></label>
-                                            </div>
-                                            <div class="gallery__item">
-                                                <input type="radio" id="img-7" name="gallery" class="gallery__selector" />
-                                                <img class="gallery__img"
-                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/6.jpg"
-                                                    width="650" height="400" alt="" />
-                                                <label for="img-7" class="gallery__thumb"><img
-                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/6.jpg"
-                                                        width="150" alt="" /></label>
-                                            </div>
-                                            <div class="gallery__item">
-                                                <input type="radio" id="img-8" name="gallery" class="gallery__selector" />
-                                                <img class="gallery__img"
-                                                    src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/7.jpg"
-                                                    width="650" height="400" alt="" />
-                                                <label for="img-8" class="gallery__thumb"><img
-                                                        src="images/Aszfaltozás-Bátonyterenye-20230402T123812Z-001/Aszfaltozás-Bátonyterenye/7.jpg"
-                                                        width="150" alt="" /></label>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="tab-gallery-2">
-                                
-                            </div>
-                            <div id="tab-gallery-3">
-                                
-                            </div>
-                            <div id="tab-gallery-4">
-                                
-                            </div>
-                        </div>
+                    <div class="img-grid">
+                        <div class="item1 gallery-item" data-index="0"><i class="fa-solid fa-eye eye"></i></div>
+                        <div class="item2 gallery-item" data-index="1"><i class="fa-solid fa-eye eye"></i></div>
+                        <div class="item3 gallery-item" data-index="2"><i class="fa-solid fa-eye eye"></i></div>
+                        <div class="item4 gallery-item" data-index="3"><i class="fa-solid fa-eye eye"></i></div>
+                        <div class="item5 gallery-item" data-index="4"><i class="fa-solid fa-eye eye"></i></div>
+                        <div class="item6 gallery-item" data-index="5"><i class="fa-solid fa-eye eye"></i></div>
+                        <div class="item7 gallery-item" data-index="6"><i class="fa-solid fa-eye eye"></i></div>
                     </div>
                 </div>
             </div>
@@ -536,39 +448,56 @@
 
         </div>
     </div>
-
+    <div class="gallery">
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-11"></div>
+                <div class="col-1 close-images">
+                    <i class="fa-solid fa-x"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 images-gallery">
+                    <div class="row">
+                        <div class="col-3">
+                            <img class="gallery-images" id="gImg0">
+                        </div>
+                        <div class="col-3">
+                            <img class="gallery-images" id="gImg1">
+                        </div>
+                        <div class="col-3">
+                            <img class="gallery-images" id="gImg2">
+                        </div>
+                        <div class="col-3">
+                            <img class="gallery-images" id="gImg3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <img class="gallery-images" id="gImg4">
+                        </div>
+                        <div class="col-3">
+                            <img class="gallery-images" id="gImg5">
+                        </div>
+                        <div class="col-3">
+                            <img class="gallery-images" id="gImg6">
+                        </div>
+                        <div class="col-3">
+                            <img class="gallery-images" id="gImg7">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mt-3 text-center">
+                    <h3 id="gallery-title"></h3>
+                    <p id="gallery-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="image-viewer">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="full-image">
+    </div>
 </body>
 
 </html>
-<!-- <div class="row ">
-                <div class="col-3 mt-4">
-                    <h3>Munkáink</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor, metus sed ultrices consequat, neque neque suscipit nulla, sit amet sodales velit libero quis mi. Morbi ac hendrerit sem, nec dapibus odio. Suspendisse consectetur urna non finibus vehicula. </p>
-                </div>
-                <div class="col-9 mt-4">
-
-                    <section class="gallery">
-                        <div class="gallery__item">
-                          <input type="radio" id="img-1" checked name="gallery" class="gallery__selector"/>
-                          <img class="gallery__img" src="images/pexels-burst-544966.jpg" width="650" height="400"  alt=""/>
-                          <label for="img-1" class="gallery__thumb"><img src="images/pexels-burst-544966.jpg" width="150" alt=""/></label>
-                        </div>
-                        <div class="gallery__item">
-                          <input type="radio" id="img-2" name="gallery" class="gallery__selector"/>
-                          <img class="gallery__img" src="images/pexels-expect-best-323772.jpg" width="650" height="400" alt=""/>
-                          <label for="img-2" class="gallery__thumb"><img src="images/pexels-expect-best-323772.jpg" width="150" alt=""/></label>
-                        </div>
-                        <div class="gallery__item">
-                          <input type="radio" id="img-3" name="gallery" class="gallery__selector"/>
-                          <img class="gallery__img" src="images/pexels-monica-silvestre-4249477.jpg" width="650" height="400" alt=""/>
-                          <label for="img-3" class="gallery__thumb"><img src="images/pexels-monica-silvestre-4249477.jpg" width="150" alt=""/></label>
-                        </div>
-                        <div class="gallery__item">
-                          <input type="radio" id="img-4" name="gallery" class="gallery__selector"/>
-                          <img class="gallery__img" src="images/pexels-ron-lach-8829869.jpg" width="650" height="400" alt=""/>
-                          <label for="img-4" class="gallery__thumb"><img src="images/pexels-ron-lach-8829869.jpg" width="150" alt=""/></label>
-                        </div>
-                      </section>
-
-                </div>
-            </div> -->

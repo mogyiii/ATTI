@@ -1,0 +1,98 @@
+.item1 {
+    grid-area: item1;
+    background: url('../images/Aszfaltozas-Batonyterenye/8.jpg') rgb(28, 28, 28);
+}
+
+.item2 {
+    grid-area: item2;
+    background: url('../images/Csarnokepites-Nyirbator/8.jpg') rgb(28, 28, 28);
+}
+
+.item3 {
+    grid-area: item3;
+    background: url('../images/Diszburkolas-Nagykovacsi_Szent_Anna_utca/8.jpg')rgb(28, 28, 28);
+}
+
+.item4 {
+    grid-area: item4;
+    background: url('../images/Felujitas-Budapest_VI._kerulet/8.jpg')rgb(28, 28, 28);
+}
+
+.item5 {
+    grid-area: item5;
+    background: url('../images/Generalkivitelezes-Erd/8.jpg')rgb(28, 28, 28);
+}
+
+.item6 {
+    grid-area: item6;
+    background: url('../images/Szerkezetepitws-Budapest_Gergely_utca/8.jpg')rgb(28, 28, 28);
+}
+
+.item7 {
+    grid-area: item7;
+    background: url('../images/Terburkolas-Tatabanya/8.jpg')rgb(28, 28, 28);
+}
+
+.item1,
+.item2,
+.item3,
+.item4,
+.item5,
+.item6,
+.item7 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: .6s;
+    color: rgb(241, 241, 241);
+    display: flex;
+    align-items: center;
+    line-height: 45px;
+    justify-content: center;
+}
+
+.item1:hover,
+.item2:hover,
+.item3:hover,
+.item4:hover,
+.item5:hover,
+.item6:hover,
+.item7:hover {
+    cursor: pointer;
+    box-shadow: inset 100vh 0 0 0 #141414c6;
+}
+.eye{
+    visibility: hidden;
+    transition: .3s;
+}
+.item1:hover .eye,
+.item2:hover .eye,
+.item3:hover .eye,
+.item4:hover .eye,
+.item5:hover .eye,
+.item6:hover .eye,
+.item7:hover .eye {
+    visibility:visible;
+}
+
+.img-grid {
+    display: grid;
+    grid-template-areas:
+        'item1 item1 item2 item3'
+        'item4 item5 item5 item6'
+        'item4 item7 item7 item6';
+    gap: 10px;
+
+    padding: 10px;
+
+}
+
+.img-grid>div {
+    text-align: center;
+    padding: 150px 0;
+    font-size: 30px;
+}
+.gallery-images{
+    width: 100%;
+    margin: 15px;
+}

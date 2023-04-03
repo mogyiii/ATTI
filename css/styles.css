@@ -17,7 +17,7 @@ body {
     font-size: .9em;
     margin-top: -200px;
     transition: .2s;
-    z-index: 99;
+    z-index: 3;
 }
 
 a {
@@ -64,6 +64,7 @@ a:active {
     padding-top: 150px !important;
     color: rgb(234, 234, 234);
 }
+
 .row-us-works {
     color: rgb(211, 211, 211);
     background-color: rgb(30, 30, 30);
@@ -89,7 +90,7 @@ a:active {
 }
 
 .row-about-us-images {
-    
+
     background-position: 40% 40%;
     background-size: cover;
     background-blend-mode: multiply;
@@ -98,10 +99,11 @@ a:active {
     height: 150px;
 }
 
-.slider-text{
+.slider-text {
     margin-bottom: 500px;
 }
-.slider-split{
+
+.slider-split {
     width: 100%;
     height: 250px;
     background: url('../images/slide-splitter.jpg') rgb(255, 195, 41);
@@ -111,6 +113,32 @@ a:active {
 
     margin-top: -150px;
 }
-.references{
-    height: 750px;
+
+.references {
+    height: 1200px;
+}
+.logo{
+    width: 180px;
+}
+.gallery{
+    background-color: rgba(248, 248, 248, 0.982);
+    
+    top: 20%;
+    position: fixed;
+    width: 90%;
+    height: 500px;
+    margin-left: -10000px;
+    transition: .6s;
+}
+.gallery-images{
+    width: 150px;
+    transition: .2s;
+}
+.gallery-images:hover{
+    opacity: .9;
+    cursor: pointer;
+}
+.close{
+    font-size: 1.2em;
+    cursor: pointer;
 }
