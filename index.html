@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="css/tabs-style.css">
     <link rel="stylesheet" href="css/dropdown-style.css">
     <link rel="stylesheet" href="css/img-grid-style.css">
@@ -68,12 +67,15 @@
             });
             $(window).bind('scroll', function (e) {
                 var scroll = $(window).scrollTop();
-                if (scroll > 120) {
+                if ($(window).width() > 992) {
+                    if (scroll > 120) {
 
-                    $('.menu-container').css('margin-top', '-115px');
-                } else {
-                    $('.menu-container').css('margin-top', '-200px');
+                        $('.menu-container').css('top', '0%');
+                    } else {
+                        $('.menu-container').css('top', '-50%');
+                    }
                 }
+
             })
 
             $("[name=tabs]").change(function () {
@@ -111,9 +113,11 @@
                     $(`#gImg${i}`).attr("src", `./images/${galleryObj.imagePath}/${i + 1}.jpg`);
 
                 $(".gallery").css("margin-left", "5%")
+                $(".gallery").css("opacity", "1")
             });
             $(".close-images").click(function () {
-                $(".gallery").css("margin-left", "-10000px")
+                $(".gallery").css("margin-left", "-2000px")
+                $(".gallery").css("opacity", "0")
             });
 
             $(".images-gallery img").click(function () {
@@ -174,24 +178,24 @@
         <div class="container">
             <div class="row header-text">
                 <!--Header-->
-                <div class="col-lg-4 py-3">
-                    <i class="fa-brands fa-facebook-f px-2"></i>
-                    <i class="fa-brands fa-instagram"></i>
+                <div class="col-12 col-lg-4 py-3 text-center text-md-left mt-5 mt-md-0 header-icons">
+                    <a href="https://www.facebook.com/origouniverzal/"><i class="fa-brands fa-facebook-f px-2"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
                 </div>
-                <div class="col-lg-8 py-3">
+                <div class="col-12 col-lg-8 py-3">
                     <div class="row">
 
-                        <div class="col-4">
+                        <div class="col-6 col-md-4 text-center text-md-left">
                             <span>
                                 <i class="fa-regular fa-clock py-1 px-1 text-center">
                                 </i>
                                 Hétf - Pént: 8:00 - 16:00
                             </span>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-md-4 text-center text-md-left">
                             <span><i class="fa-solid fa-phone py-1 px-1 text-center"></i>+36 20 503 7107</span>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12 col-md-4 text-center text-md-left">
                             <span><i
                                     class="fa-regular fa-envelope py-1 px-1 text-center"></i>info@origouniverzal.hu</span>
                         </div>
@@ -203,10 +207,10 @@
     <div class="container-fluid">
         <div class="container">
             <div class="row menu header-text">
-                <div class="col-4">
-                    <img src="images/Logó 2017.png" class="logo">
+                <div class="col-4 d-none d-lg-block">
+                    <img src="images/logo 2017.png" class="logo">
                 </div>
-                <div class="col-8 text-uppercase">
+                <div class="col-8 text-uppercase d-none d-lg-block">
                     <div class="row">
                         <div class="col-3 top-50 text-center border-right border-secondary">
                             <a href="#">Referenciáink</a>
@@ -235,9 +239,9 @@
         <div class="container">
             <div class="row menu">
                 <div class="col-4">
-                    <img src="images/Logó 2017.png" class="logo">
+                    <img src="images/logo 2017.png" class="logo">
                 </div>
-                <div class="col-8 text-uppercase">
+                <div class="col-8 text-uppercase d-none d-lg-block">
                     <div class="row">
                         <div class="col-3 text-center border-right border-secondary">
                             <a href="#" class="text-dark">Referenciáink</a>
@@ -259,6 +263,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-8 d-xl-none d-lg-none d-md-block d-sm-block  hamburger-icon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -271,7 +278,7 @@
                 <div class="col-12">
                     <h1>Consectetur adipiscing elit</h1>
                 </div>
-                <div class="col-4 col-lg-6 col-sm-8  mt-4">
+                <div class="col-12 col-md-4 col-lg-6 col-sm-8  mt-4">
                     <h6>Euismod enim tellus, non bibendum purus tristique non. Vestibulum augue velit, feugiat suscipit
                         augue sed, tincidunt faucibus sapien. </h6>
                 </div>
@@ -288,10 +295,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <img src="images/rolunk.jpg" width="100%">
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-md-6 mt-5 mt-md-0">
                     <div class="row">
                         <div class="col-12">
                             <div class="row-about-us-images"
@@ -306,14 +313,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="row-about-us-images" style="background-image: url('/images/ourmission.jpg');">
                             </div>
                             <h5 class="text-uppercase mt-3 mb-3">Géppark</h5>
                             <p>Vállalkozásunk gépparkjában rendelkezésünkre áll minden olyan eszköz, amely a magasfokú
                                 kivitelezéshez elengedhetetlen.</p>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="row-about-us-images"
                                 style="background-image: url('/images/consultation23.jpg');"></div>
                             <h5 class="text-uppercase mt-3 mb-3">Kapcsolati háló</h5>
@@ -451,45 +458,44 @@
     <div class="gallery">
         <div class="container-fluid mt-5">
             <div class="row">
-                <div class="col-11"></div>
-                <div class="col-1 close-images">
+                <div class="col-12 close-images">
                     <i class="fa-solid fa-x"></i>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6 images-gallery">
+            <div class="row w-100">
+                <div class="col-12 col-md-6 mt-3 text-center">
+                    <h3 id="gallery-title"></h3>
+                    <p id="gallery-text"></p>
+                </div>
+                <div class="col-12 col-md-6 images-gallery">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             <img class="gallery-images" id="gImg0">
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             <img class="gallery-images" id="gImg1">
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             <img class="gallery-images" id="gImg2">
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             <img class="gallery-images" id="gImg3">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             <img class="gallery-images" id="gImg4">
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             <img class="gallery-images" id="gImg5">
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             <img class="gallery-images" id="gImg6">
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             <img class="gallery-images" id="gImg7">
                         </div>
                     </div>
-                </div>
-                <div class="col-6 mt-3 text-center">
-                    <h3 id="gallery-title"></h3>
-                    <p id="gallery-text"></p>
                 </div>
             </div>
         </div>

@@ -61,10 +61,12 @@
     cursor: pointer;
     box-shadow: inset 100vh 0 0 0 #141414c6;
 }
-.eye{
+
+.eye {
     visibility: hidden;
     transition: .3s;
 }
+
 .item1:hover .eye,
 .item2:hover .eye,
 .item3:hover .eye,
@@ -72,27 +74,53 @@
 .item5:hover .eye,
 .item6:hover .eye,
 .item7:hover .eye {
-    visibility:visible;
+    visibility: visible;
 }
 
-.img-grid {
-    display: grid;
-    grid-template-areas:
-        'item1 item1 item2 item3'
-        'item4 item5 item5 item6'
-        'item4 item7 item7 item6';
-    gap: 10px;
 
-    padding: 10px;
 
-}
 
-.img-grid>div {
-    text-align: center;
-    padding: 150px 0;
-    font-size: 30px;
-}
-.gallery-images{
+
+.gallery-images {
     width: 100%;
     margin: 15px;
+}
+
+@media only screen and (max-width: 992px) {
+    .img-grid>div {
+        text-align: center;
+        padding: 50px 0;
+        font-size: 30px;
+    }
+
+    .img-grid {
+        display: grid;
+        grid-template-areas:
+            'item1 item1 item2 item2'
+            'item3 item3 item4 item4'
+            'item5 item5 item6 item6'
+            'item7 item7 item7 item7';
+        gap: 10px;
+
+        padding: 10px;
+
+    }
+}
+@media only screen and (min-width: 992px) {
+    .img-grid>div {
+        text-align: center;
+        padding: 150px 0;
+        font-size: 30px;
+    }
+    .img-grid {
+        display: grid;
+        grid-template-areas:
+            'item1 item1 item2 item3'
+            'item4 item5 item5 item6'
+            'item4 item7 item7 item6';
+        gap: 10px;
+
+        padding: 10px;
+
+    }
 }
