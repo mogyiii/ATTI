@@ -1,16 +1,16 @@
 .item1 {
     grid-area: item1;
-    background: url('../images/Aszfaltozas-Batonyterenye/8.jpg') rgb(28, 28, 28);
+    background: url('../images/Aszfaltozas-Batonyterenye/index.jpg') rgb(28, 28, 28);
 }
 
 .item2 {
     grid-area: item2;
-    background: url('../images/Csarnokepites-Nyirbator/8.jpg') rgb(28, 28, 28);
+    background: url('../images/Csarnokepites-Nyirbator/index.jpg') rgb(28, 28, 28);
 }
 
 .item3 {
     grid-area: item3;
-    background: url('../images/Diszburkolas-Nagykovacsi_Szent_Anna_utca/8.jpg')rgb(28, 28, 28);
+    background: url('../images/Diszburkolas-Nagykovacsi_Szent_Anna_utca/index.jpg')rgb(28, 28, 28);
 }
 
 .item4 {
@@ -20,17 +20,17 @@
 
 .item5 {
     grid-area: item5;
-    background: url('../images/Generalkivitelezes-Erd/8.jpg')rgb(28, 28, 28);
+    background: url('../images/Generalkivitelezes-Erd/index.jpg')rgb(28, 28, 28);
 }
 
 .item6 {
     grid-area: item6;
-    background: url('../images/Szerkezetepitws-Budapest_Gergely_utca/8.jpg')rgb(28, 28, 28);
+    background: url('../images/Szerkezetepitws-Budapest_Gergely_utca/index.jpg')rgb(28, 28, 28);
 }
 
 .item7 {
     grid-area: item7;
-    background: url('../images/Terburkolas-Tatabanya/8.jpg')rgb(28, 28, 28);
+    background: url('../images/Terburkolas-Tatabanya/index.jpg')rgb(28, 28, 28);
 }
 
 .item1,

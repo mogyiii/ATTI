@@ -19,7 +19,7 @@
 .tabs-nav>div>input:checked+label {
     background: rgb(241, 241, 241);
     color: black;
-    border-left: 5px solid black;
+    border-left: 5px solid rgb(255, 195, 41) !important;
 }
 
 .tabs {
@@ -50,26 +50,35 @@
     float: left;
 }
 
-@media screen and (max-width: 700px) {
-    .tabbed {
-        width: 400px;
+@media screen and (max-width: 922px) {
+    .tabbed{
+        float: none;
+        display: flex;
+        justify-content: center;
     }
-
-    .tabs-nav>div>label {
-        display: none;
+    .tabbed {
+        width: 100%;
+    }
+    .checked-tab {
+        top: 100px !important;
+        position: absolute;
+        right: 50%;
     }
 
     .tabs>div {
-        width: 400px;
+        width: 350px;
         border: none;
         padding: 0;
-        opacity: 1;
-        position: relative;
-        transform: none;
+        opacity: 0;
+        position: absolute;
         margin-bottom: 60px;
+        z-index: 100;
+        margin-top: 150px;
+        margin-left: -250px;
     }
 
     .tabs>div h2 {
         padding-bottom: 0.5em;
+        width: 100%;
     }
 }
