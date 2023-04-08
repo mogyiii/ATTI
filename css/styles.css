@@ -169,7 +169,7 @@ a:active {
 }
 
 .hamburger-icon {
-    font-size: 2em;
+    font-size: 2em !important;
     text-align: end;
 }
 
@@ -200,8 +200,22 @@ a:active {
 .instagram-btn:hover{
     opacity: .9;
 }
+.responsive-menu{
+    width: 90%;
+    position: fixed;
+    z-index: 101;
+    right: -150%;
+    background-color: rgb(243, 243, 243);
+    top: 60px;
+    transition: .6s;
+    color: black !important;
+}
 
-@media only screen and (max-width: 992px) {
+.responsive-menu>a{
+    line-height: 20px !important;
+}
+
+@media screen and (max-width: 992px) {
     .menu-container {
         top: 0%;
     }
