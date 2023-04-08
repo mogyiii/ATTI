@@ -243,4 +243,7 @@ a:active {
     .menu-container {
         top: -50%;
     }
+    .responsive-menu{
+        display: none;
+    }
 }
