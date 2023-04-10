@@ -44,6 +44,7 @@
             var touched = Date.now();
             var showMenu = false;
             var showdropdown = false;
+            var galleryIndex = 0;
             setInterval(function () {
                 if (getElapsedTime() > 5) {
                     if (slideIndex == $(".img-slides").length) {
@@ -109,19 +110,23 @@
                 let elapsed = now - touched;
                 return (elapsed / 1000);
             }
-            $(".gallery-item").click(function () {
-                let galleryObj = galleryList[$(this).data("index")];
+            function showGallery(galleryIndex) {
+                let galleryObj = galleryList[galleryIndex];
                 $("#gallery-title").text(galleryObj.title);
                 $("#gallery-text").text(galleryObj.text);
                 for (var i = 0; i <= 8; i++)
                     $(`#gImg${i}`).attr("src", `./images/${galleryObj.imagePath}/${i + 1}.jpg`);
 
-                $(".gallery").css("margin-left", "5%")
-                $(".gallery").css("opacity", "1")
+                $(".gallery").css("margin-left", "5%");
+                $(".gallery").css("opacity", "1");
+            }
+            $(".gallery-item").click(function () {
+                galleryIndex = $(this).data("index")
+                showGallery(galleryIndex);
             });
             $(".close-images").click(function () {
-                $(".gallery").css("margin-left", "-2000px")
-                $(".gallery").css("opacity", "0")
+                $(".gallery").css("margin-left", "-2000px");
+                $(".gallery").css("opacity", "0");
             });
 
             $(".images-gallery img").click(function () {
@@ -132,38 +137,55 @@
             $("#image-viewer .close").click(function () {
                 $('#image-viewer').hide();
             });
-            $("#menu-btn, .responsive-menu>div>div>a").click(function(){
-                if(showMenu){
+            $("#menu-btn, .responsive-menu>div>div>a").click(function () {
+                if (showMenu) {
                     $(".responsive-menu").css("right", "-150%");
-                    
-                }else{
+
+                } else {
                     $(".responsive-menu").css("right", "0%");
                 }
                 showMenu = !showMenu;
             });
-            $("#tevekenyseg-dropdown").click(function(){
-                if(showdropdown){
+            $("#tevekenyseg-dropdown").click(function () {
+                if (showdropdown) {
                     $("#dropdown-content-container").css("display", "none");
                     $("#tevekenyseg-dropdown").css("transform", "rotate(0deg)");
-                }else{
+                } else {
                     $("#dropdown-content-container").css("display", "block");
                     $("#tevekenyseg-dropdown").css("transform", "rotate(180deg)");
                 }
                 showdropdown = !showdropdown;
             });
-            $(".tevekenyseg-al").click(function(){
+            $(".tevekenyseg-al").click(function () {
                 let dataId = $(this).data("id");
                 //let input = $("[name=tabs]").find(x => $(x).data("id") == $(this).data("id"))
-                $("[name=tabs]").each(function(i, obj) {
-                    if($(obj).data("id") === dataId){
-                        $(obj).prop( "checked", true );
+                $("[name=tabs]").each(function (i, obj) {
+                    if ($(obj).data("id") === dataId) {
+                        $(obj).prop("checked", true);
                         $("div").removeClass("checked-tab");
                         let dataId = $(obj).data("id");
                         let tab = $(`#${dataId}:first`);
                         tab.addClass("checked-tab");
                     }
                 });
-
+            });
+            $("#next-gallery").click(function () {
+                if (galleryIndex < 6) {
+                    galleryIndex++;
+                }
+                else {
+                    galleryIndex = 0;
+                }
+                showGallery(galleryIndex);
+            });
+            $("#back-gallery").click(function () {
+                if (galleryIndex > 0) {
+                    galleryIndex--;
+                }
+                else {
+                    galleryIndex = 6;
+                }
+                showGallery(galleryIndex);
             });
         });
     </script>
@@ -175,27 +197,27 @@
 
             <div class="img-slides emerges">
                 <div class="numbertext">1 / 5</div>
-                <img src="images/fejlec1.jpg" class="bg-images">
+                <img src="images/fejlec1.jpg" class="bg-images" loading="lazy">
             </div>
 
             <div class="img-slides emerges">
                 <div class="numbertext">2 / 5</div>
-                <img src="images/fejlec2.jpg" class="bg-images">
+                <img src="images/fejlec2.jpg" class="bg-images" loading="lazy">
 
             </div>
 
             <div class="img-slides emerges">
                 <div class="numbertext">3 / 5</div>
-                <img src="images/fejlec3.jpg" class="bg-images">
+                <img src="images/fejlec3.jpg" class="bg-images" loading="lazy">
             </div>
 
             <div class="img-slides emerges">
                 <div class="numbertext">4 / 5</div>
-                <img src="images/fejlec4.jpg" class="bg-images">
+                <img src="images/fejlec4.jpg" class="bg-images" loading="lazy">
             </div>
             <div class="img-slides emerges">
                 <div class="numbertext">5 / 5</div>
-                <img src="images/fejlec5.jpg" class="bg-images">
+                <img src="images/fejlec5.jpg" class="bg-images" loading="lazy">
             </div>
         </div>
 
@@ -251,13 +273,18 @@
                         <div class="col-3 top-50 text-center border-right border-secondary menu-label">
                             <a href="#references">Referenciáink</a>
                         </div>
-                        <div class="col-3 top-50 text-center border-right border-secondary tevekenyseg-square menu-label">
+                        <div
+                            class="col-3 top-50 text-center border-right border-secondary tevekenyseg-square menu-label">
                             <a href="#tevekenyseg" class="tevekenyseg">Tevékenységeink</a>
                             <div class="dropdown-content text-left">
-                                <a href="#tevekenyseg" data-id="tab-1" class="text-dark menu-label tevekenyseg-al">General kivitelezés</a>
-                                <a href="#tevekenyseg" data-id="tab-2" class="text-dark menu-label tevekenyseg-al">Szerkezet építés</a>
-                                <a href="#tevekenyseg" data-id="tab-3" class="text-dark menu-label tevekenyseg-al">Útépítés</a>
-                                <a href="#tevekenyseg" data-id="tab-4"  class="text-dark menu-label tevekenyseg-al">Ipari padlók</a>
+                                <a href="#tevekenyseg" data-id="tab-1"
+                                    class="text-dark menu-label tevekenyseg-al">General kivitelezés</a>
+                                <a href="#tevekenyseg" data-id="tab-2"
+                                    class="text-dark menu-label tevekenyseg-al">Szerkezet építés</a>
+                                <a href="#tevekenyseg" data-id="tab-3"
+                                    class="text-dark menu-label tevekenyseg-al">Útépítés</a>
+                                <a href="#tevekenyseg" data-id="tab-4" class="text-dark menu-label tevekenyseg-al">Ipari
+                                    padlók</a>
                             </div>
                         </div>
                         <div class="col-3 top-50 text-center border-right border-secondary menu-label">
@@ -275,7 +302,7 @@
         <div class="container">
             <div class="row menu">
                 <div class="col-4">
-                    <a href="#"><img src="images/logo_2017.png" class="logo"></a>
+                    <a href="#"><img src="images/logo_2017.png" class="logo" loading="lazy"></a>
                 </div>
                 <div class="col-8 text-uppercase d-none d-lg-block">
                     <div class="row">
@@ -285,10 +312,13 @@
                         <div class="col-3 text-center border-right border-secondary tevekenyseg-square menu-label">
                             <a href="#tevekenyseg" class="text-dark tevekenyseg">Tevékenységeink</a>
                             <div class="dropdown-content text-left">
-                                <a href="#tevekenyseg" data-id="tab-1" class="text-dark tevekenyseg-al">General kivitelezés</a>
-                                <a href="#tevekenyseg" data-id="tab-2" class="text-dark tevekenyseg-al">Szerkezet építés</a>
+                                <a href="#tevekenyseg" data-id="tab-1" class="text-dark tevekenyseg-al">General
+                                    kivitelezés</a>
+                                <a href="#tevekenyseg" data-id="tab-2" class="text-dark tevekenyseg-al">Szerkezet
+                                    építés</a>
                                 <a href="#tevekenyseg" data-id="tab-3" class="text-dark tevekenyseg-al">Útépítés</a>
-                                <a href="#tevekenyseg" data-id="tab-4" class="text-dark tevekenyseg-al">Ipari padSlók</a>
+                                <a href="#tevekenyseg" data-id="tab-4" class="text-dark tevekenyseg-al">Ipari
+                                    padSlók</a>
                             </div>
                         </div>
                         <div class="col-3 text-center border-right border-secondary menu-label">
@@ -331,7 +361,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <img src="images/rolunk.jpg" width="100%">
+                    <img src="images/rolunk.jpg" width="100%" loading="lazy">
                 </div>
                 <div class="col-12 col-md-6 mt-5 mt-md-0">
                     <div class="row">
@@ -484,7 +514,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-3 d-none d-lg-block">
-                    <img src="images/worker2.jpg" width="100%">
+                    <img src="images/worker2.jpg" width="100%" loading="lazy">
                 </div>
             </div>
         </div>
@@ -545,6 +575,16 @@
                 </div>
             </div>
             <div class="row w-100">
+                <div class="col-12 w-100 d-flex justify-content-between">
+                    <button class="btn" id="back-gallery">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="btn" id="next-gallery">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row w-100">
                 <div class="col-12 col-md-6 mt-3 text-center">
                     <h3 id="gallery-title"></h3>
                     <p id="gallery-text"></p>
@@ -552,30 +592,30 @@
                 <div class="col-12 col-md-6 images-gallery">
                     <div class="row">
                         <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg0">
+                            <img class="gallery-images" id="gImg0" loading="lazy">
                         </div>
                         <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg1">
+                            <img class="gallery-images" id="gImg1" loading="lazy">
                         </div>
                         <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg2">
+                            <img class="gallery-images" id="gImg2" loading="lazy">
                         </div>
                         <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg3">
+                            <img class="gallery-images" id="gImg3" loading="lazy">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg4">
+                            <img class="gallery-images" id="gImg4" loading="lazy">
                         </div>
                         <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg5">
+                            <img class="gallery-images" id="gImg5" loading="lazy">
                         </div>
                         <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg6">
+                            <img class="gallery-images" id="gImg6" loading="lazy">
                         </div>
                         <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg7">
+                            <img class="gallery-images" id="gImg7" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -584,7 +624,7 @@
     </div>
     <div id="image-viewer">
         <span class="close">&times;</span>
-        <img class="modal-content" id="full-image">
+        <img class="modal-content" id="full-image" loading="lazy">
     </div>
     <div class="responsive-menu">
         <div class="row">
@@ -595,8 +635,10 @@
                 <a href="#tevekenyseg" class="tevekenyseg text-dark mr-5">Tevékenységeink</a>
                 <button id="tevekenyseg-dropdown" class="btn ml-5"><i class="fa-solid fa-chevron-down"></i></button>
                 <div class="dropdown-content text-left" id="dropdown-content-container">
-                    <a href="#tevekenyseg" data-id="tab-1" class="text-dark menu-label tevekenyseg-al">General kivitelezés</a>
-                    <a href="#tevekenyseg" data-id="tab-2" class="text-dark menu-label tevekenyseg-al">Szerkezet építés</a>
+                    <a href="#tevekenyseg" data-id="tab-1" class="text-dark menu-label tevekenyseg-al">General
+                        kivitelezés</a>
+                    <a href="#tevekenyseg" data-id="tab-2" class="text-dark menu-label tevekenyseg-al">Szerkezet
+                        építés</a>
                     <a href="#tevekenyseg" data-id="tab-3" class="text-dark menu-label tevekenyseg-al">Útépítés</a>
                     <a href="#tevekenyseg" data-id="tab-4" class="text-dark menu-label tevekenyseg-al">Ipari padlók</a>
                 </div>
