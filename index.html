@@ -45,6 +45,7 @@
             var showMenu = false;
             var showdropdown = false;
             var galleryIndex = 0;
+            var imageIndex = 0;
             setInterval(function () {
                 if (getElapsedTime() > 5) {
                     if (slideIndex == $(".img-slides").length) {
@@ -114,8 +115,11 @@
                 let galleryObj = galleryList[galleryIndex];
                 $("#gallery-title").text(galleryObj.title);
                 $("#gallery-text").text(galleryObj.text);
-                for (var i = 0; i <= 8; i++)
+                for (var i = 0; i <= 8; i++){
                     $(`#gImg${i}`).attr("src", `./images/${galleryObj.imagePath}/${i + 1}.jpg`);
+                    $(`#gImg${i}`).data("index", `${i}`);
+                }
+                    
 
                 $(".gallery").css("margin-left", "5%");
                 $(".gallery").css("opacity", "1");
@@ -131,6 +135,7 @@
 
             $(".images-gallery img").click(function () {
                 $("#full-image").attr("src", $(this).attr("src"));
+                imageIndex = $(this).data("index");
                 $('#image-viewer').show();
             });
 
@@ -187,6 +192,28 @@
                 }
                 showGallery(galleryIndex);
             });
+            $("#next-image").click(function(){
+                if (imageIndex < 7) {
+                    imageIndex++;
+                }
+                else {
+                    imageIndex = 0;
+                }
+                imageView(imageIndex);
+            });
+            $("#back-image").click(function(){
+                if (imageIndex > 0) {
+                    imageIndex--;
+                }
+                else {
+                    imageIndex = 7;
+                }
+                imageView(imageIndex);
+            });
+            function imageView(imageIndex){
+                let galleryObj = galleryList[galleryIndex];
+                $("#full-image").attr("src", `./images/${galleryObj.imagePath}/${imageIndex + 1}.jpg`);
+            }
         });
     </script>
 </head>
@@ -624,6 +651,12 @@
     </div>
     <div id="image-viewer">
         <span class="close">&times;</span>
+        <button class="btn image-btn" id="back-image">
+                <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="btn image-btn" id="next-image">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
         <img class="modal-content" id="full-image" loading="lazy">
     </div>
     <div class="responsive-menu">

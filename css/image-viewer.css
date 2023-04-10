@@ -41,7 +41,26 @@
     text-decoration: none;
     cursor: pointer;
 }
-
+.image-btn{
+    position: absolute;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.image-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+#back-image{
+    top: 40%;
+    left: 5%;
+}
+#next-image{
+    top: 40%;
+    right: 5%;
+}
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
