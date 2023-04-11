@@ -105,10 +105,6 @@ a:active {
     height: 150px;
 }
 
-.slider-text {
-    margin-bottom: 500px;
-}
-
 .slider-split {
     width: 100%;
     height: 250px;
@@ -116,8 +112,6 @@ a:active {
     background-position: 30% 35%;
     background-size: cover;
     background-blend-mode: multiply;
-
-    margin-top: -7%;
 }
 
 .references {
@@ -215,7 +209,7 @@ a:active {
     line-height: 20px !important;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 992px) and (min-width: 767px) {
     .menu-container {
         top: 0%;
     }
@@ -230,18 +224,54 @@ a:active {
     }
 
     .slider-split {
-        margin-top: -75%;
+        position: relative;
         background-size: 350% auto;
         background-position: 35% 40%;
+        margin-top: 300px;
+        position: relative;
     }
     .row-us-works{
         height: 800px;
     }
 }
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+    .slider-split {
+        background-size: 250% auto;
+        margin-top: 370px;
+    }
+}
+@media screen and (min-width: 1201px) {
+    .slider-split {
+        margin-top: 380px;
+    }
+}
+@media screen and (max-width: 766px){
+    .menu-container {
+        top: 0%;
+    }
+    .slider-split {
+        background-size: 250% auto;
+        background-position: 35% 40%;
+        background-repeat: none;
+        position: relative;
+        margin-top: 240px;
+        height: 250px;
+        z-index: -1;
+    }
+    .gallery {
+        overflow: scroll;
+    }
+    .row-us-works{
+        height: 800px;
+    }
+    .header-icons {
+        font-size: 1.5em;
+    }
+}
 
 @media only screen and (min-width: 992px) {
     .menu-container {
-        top: -50%;
+        top: 0%;
     }
     .responsive-menu{
         display: none;
