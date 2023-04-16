@@ -115,11 +115,11 @@
                 let galleryObj = galleryList[galleryIndex];
                 $("#gallery-title").text(galleryObj.title);
                 $("#gallery-text").text(galleryObj.text);
-                for (var i = 0; i <= 8; i++){
+                for (var i = 0; i <= 8; i++) {
                     $(`#gImg${i}`).attr("src", `./images/${galleryObj.imagePath}/${i + 1}.jpg`);
                     $(`#gImg${i}`).data("index", `${i}`);
                 }
-                    
+
 
                 $(".gallery").css("margin-left", "5%");
                 $(".gallery").css("opacity", "1");
@@ -192,7 +192,7 @@
                 }
                 showGallery(galleryIndex);
             });
-            $("#next-image").click(function(){
+            $("#next-image").click(function () {
                 if (imageIndex < 7) {
                     imageIndex++;
                 }
@@ -201,7 +201,7 @@
                 }
                 imageView(imageIndex);
             });
-            $("#back-image").click(function(){
+            $("#back-image").click(function () {
                 if (imageIndex > 0) {
                     imageIndex--;
                 }
@@ -210,7 +210,7 @@
                 }
                 imageView(imageIndex);
             });
-            function imageView(imageIndex){
+            function imageView(imageIndex) {
                 let galleryObj = galleryList[galleryIndex];
                 $("#full-image").attr("src", `./images/${galleryObj.imagePath}/${imageIndex + 1}.jpg`);
             }
@@ -278,11 +278,10 @@
                             </span>
                         </div>
                         <div class="col-6 col-md-4 text-center text-md-left">
-                            <span><i class="fa-solid fa-phone py-1 px-1 text-center"></i>+36 20 503 7107</span>
+                            <span><a href="tel: +36205037107"><i class="fa-solid fa-phone py-1 px-1 text-center"></i>+36 20 503 7107</a></span>
                         </div>
                         <div class="col-12 col-md-4 text-center text-md-left">
-                            <span><i
-                                    class="fa-regular fa-envelope py-1 px-1 text-center"></i>info@origouniverzal.hu</span>
+                            <span><a href="mailto: info@origouniverzal.hu"><i class="fa-regular fa-envelope py-1 px-1 text-center"></i>info@origouniverzal.hu</a></span>
                         </div>
                     </div>
                 </div>
@@ -293,7 +292,7 @@
         <div class="container">
             <div class="row menu header-text">
                 <div class="col-4 d-none d-lg-block">
-                    <a href="#"><img src="images/logo_2017.png" class="logo"></a>
+                    <a href="#"><img src="images/logo_2017.png" class="logo" alt="Origo Univerzál Kft."></a>
                 </div>
                 <div class="col-8 text-uppercase d-none d-lg-block">
                     <div class="row">
@@ -329,7 +328,8 @@
         <div class="container">
             <div class="row menu">
                 <div class="col-4">
-                    <a href="#"><img src="images/logo_2017.png" class="logo" loading="lazy"></a>
+                    <a href="#"><img src="images/logo_2017.png" class="logo" loading="lazy"
+                            alt="Origo Univerzál Kft."></a>
                 </div>
                 <div class="col-8 text-uppercase d-none d-lg-block">
                     <div class="row">
@@ -365,13 +365,13 @@
     <div class="container-fluid">
         <div class="container">
             <div class="row header-images-content">
-                <div class="col-12 primary-color">
-                    <h4>Építőipari vállalat</h4>
-                </div>
                 <div class="col-12">
                     <h1>Origo Univerzál Kft.</h1>
                 </div>
-                <div class="col-12 col-md-4 col-lg-6 col-sm-8  mt-4">
+                <div class="col-12 primary-color mt-2">
+                    <h4>Építőipari vállalat</h4>
+                </div>
+                <div class="col-12 col-md-4 col-lg-6 col-sm-8  mt-2">
                     <h6>Családi vállalkozásunk immáron 11 évé szolgálja ki a megrendelői igényeket.</h6>
                 </div>
             </div>
@@ -395,7 +395,7 @@
                         <div class="col-12">
                             <div class="row-about-us-images"
                                 style="background-image: url('/images/companyhistory.jpg');"></div>
-                            <h5 class="text-uppercase mt-3 mb-3">Cég történelme</h5>
+                            <h5 class="text-uppercase mt-3 mb-3">Cég története</h5>
                             <p>Több évtizedes építőipari gyakorlat után 2012 februárjában alapítottuk meg családi
                                 vállalkozásunkat, az Origo Univerzál Kft.-t. Cégünk azóta is változatlan tulajdonosi
                                 szerkezettel rendelkezik, tevékenykedik. Fő tevékenységünk kezdetben térburkolatok
@@ -546,6 +546,41 @@
             </div>
         </div>
     </div>
+
+    <div class="container-fluid py-4 partnerek">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mt-4">
+                    <h3>Partnereink</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-3 d-flex justify-content-center">
+                    <img src="./images/partnerek/betonkorr.webp" width="150" alt="Betonkorr Kft.">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center">
+                    <img src="./images/partnerek/garden.png" width="150" alt="Garden Kft.">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center">
+                    <img src="./images/partnerek/koncz.png" width="150" alt="Koncz és társa Bt.">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center">
+                    <h3>Tópark Logistic Kft.</h3>
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center">
+                    <img src="./images/partnerek/Mpaladin.png" width="150" alt="Mpaladin Kft.">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center">
+                    <img src="./images/partnerek/Rosenberger_Logo_red_sRGB_65-1.png" width="150"
+                        alt="Rosenberger Magyarország Kft.">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center">
+                    <img src="./images/partnerek/sungEel.png" width="150" alt="SungEel Hitech Hungary Kft.">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-5 mb-5" id="kapcsolat">
         <div class="row">
             <div class="col-12">
@@ -556,19 +591,28 @@
             <div class="col-12 col-md-6 mt-5">
                 <div class="row">
                     <div class="col-12 px-3 mt-2 d-flex justify-content-md-start justify-content-center">
-                        <i class="fa-solid fa-phone py-1 px-1">
-                        </i>
-                        +36 20 503 7107
+                        <a href="tel:+36205037107" class="text-dark"><i class="fa-solid fa-phone py-1 px-1">
+                            </i>
+                            +36 20 503 7107
+                        </a>
                     </div>
                     <div class="col-12 px-3 mt-2 d-flex justify-content-md-start justify-content-center">
-                        <i class="fa-regular fa-envelope py-1 px-1">
+                        <a href="mailto: info@origouniverzal.hu" class="text-dark"><i class="fa-regular fa-envelope py-1 px-1">
                         </i>
                         info@origouniverzal.hu
+                        </a>
                     </div>
                     <div class="col-12 px-3 mt-2 d-flex justify-content-md-start justify-content-center">
-                        <i class="fa-solid fa-phone py-1 px-1">
-                        </i>
-                        +36 20 339 4299
+                        <a href="tel:+36203394299" class="text-dark"><i class="fa-solid fa-phone py-1 px-1">
+                            </i>
+                            +36 20 339 4299
+                        </a>
+                    </div>
+                    <div class="col-12 px-3 mt-2 d-flex justify-content-md-start justify-content-center">
+                        Székhely: 1173 Budapest, Pesti út 474.
+                    </div>
+                    <div class="col-12 px-3 mt-2 d-flex justify-content-md-start justify-content-center">
+                        Adószám: 23862216-2-42
                     </div>
                 </div>
 
@@ -652,7 +696,7 @@
     <div id="image-viewer">
         <span class="close">&times;</span>
         <button class="btn image-btn" id="back-image">
-                <i class="fa-solid fa-chevron-left"></i>
+            <i class="fa-solid fa-chevron-left"></i>
         </button>
         <button class="btn image-btn" id="next-image">
             <i class="fa-solid fa-chevron-right"></i>

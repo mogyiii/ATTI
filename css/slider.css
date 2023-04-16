@@ -1,6 +1,6 @@
 .img-slides {
     display: none;
-    background-color: rgb(232, 221, 59);
+    background-color: #7fc759;
 }
 img {vertical-align: middle;}
 
@@ -48,7 +48,7 @@ img {vertical-align: middle;}
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: rgb(248, 211, 118);
+  background-color: #7fc759;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;

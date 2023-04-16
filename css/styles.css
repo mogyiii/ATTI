@@ -82,7 +82,7 @@ a:active {
 .row-gallery-line {
     color: rgb(234, 234, 234);
 
-    background: url('../images/pexels-jiyoung-kim-4513940.jpg') rgb(255, 195, 41);
+    background: url('../images/pexels-jiyoung-kim-4513940.webp');
     background-position: 40% 40%;
     background-size: cover;
     background-blend-mode: multiply;
@@ -107,11 +107,7 @@ a:active {
 
 .slider-split {
     width: 100%;
-    height: 250px;
-    background: url('../images/slide-splitter.jpg') rgb(255, 195, 41);
-    background-position: 30% 35%;
-    background-size: cover;
-    background-blend-mode: multiply;
+    height: 50px;
 }
 
 .references {
@@ -159,7 +155,7 @@ a:active {
 }
 
 .header-icons>a:hover {
-    color: rgb(255, 195, 41)
+    color: #7fc759
 }
 
 .hamburger-icon {
@@ -208,6 +204,9 @@ a:active {
 .responsive-menu>a{
     line-height: 20px !important;
 }
+.partnerek{
+    background-color: rgb(240, 240, 240);
+}
 
 @media screen and (max-width: 992px) and (min-width: 767px) {
     .menu-container {
@@ -225,10 +224,7 @@ a:active {
 
     .slider-split {
         position: relative;
-        background-size: 350% auto;
-        background-position: 35% 40%;
         margin-top: 300px;
-        position: relative;
     }
     .row-us-works{
         height: 800px;
@@ -236,7 +232,6 @@ a:active {
 }
 @media screen and (max-width: 1200px) and (min-width: 992px) {
     .slider-split {
-        background-size: 250% auto;
         margin-top: 370px;
     }
 }
@@ -250,12 +245,9 @@ a:active {
         top: 0%;
     }
     .slider-split {
-        background-size: 250% auto;
-        background-position: 35% 40%;
-        background-repeat: none;
         position: relative;
         margin-top: 240px;
-        height: 250px;
+        height: 50px;
         z-index: -1;
     }
     .gallery {

@@ -19,7 +19,7 @@
 .tabs-nav>div>input:checked+label {
     background: rgb(241, 241, 241);
     color: black;
-    border-left: 5px solid rgb(255, 195, 41) !important;
+    border-left: 5px solid #7fc759 !important;
 }
 
 .tabs {
