@@ -166,18 +166,21 @@ a:active {
 .facebook-btn {
     border: 0px solid #fff;
     border-radius: 4px;
-    background-color: #4267B2;
+    /* background-color: #4267B2; */
+    background-color: grey;
     color: white;
     text-align: center;
     font-size: 1.8em;
     transition: .3s;
 }
 .facebook-btn:hover{
-    opacity: .9;
+    /* opacity: .9; */
+    background-color: #7fc759;
 }
 
 .instagram-btn {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    /* background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); */
+    background-color: grey;
     -webkit-background-clip: text;
     transition: .3s;
     background-clip: text;
@@ -188,7 +191,8 @@ a:active {
     border-radius: 4px;
 }
 .instagram-btn:hover{
-    opacity: .9;
+    /* opacity: .9; */
+    background-color: #7fc759;
 }
 .responsive-menu{
     width: 90%;
@@ -210,6 +214,13 @@ a:active {
 .partnerek > img {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
+}
+h3{
+    text-decoration: underline;
+    text-decoration-color: #7fc759;
+}
+.kapcsolat{
+    background-color: rgb(237, 244, 240);
 }
 
 @media screen and (max-width: 992px) and (min-width: 767px) {
