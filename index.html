@@ -111,37 +111,6 @@
                 let elapsed = now - touched;
                 return (elapsed / 1000);
             }
-            function showGallery(galleryIndex) {
-                let galleryObj = galleryList[galleryIndex];
-                $("#gallery-title").text(galleryObj.title);
-                $("#gallery-text").text(galleryObj.text);
-                for (var i = 0; i <= 8; i++) {
-                    $(`#gImg${i}`).attr("src", `./images/${galleryObj.imagePath}/${i + 1}.jpg`);
-                    $(`#gImg${i}`).data("index", `${i}`);
-                }
-
-
-                $(".gallery").css("margin-left", "5%");
-                $(".gallery").css("opacity", "1");
-            }
-            $(".gallery-item").click(function () {
-                galleryIndex = $(this).data("index")
-                showGallery(galleryIndex);
-            });
-            $(".close-images").click(function () {
-                $(".gallery").css("margin-left", "-2000px");
-                $(".gallery").css("opacity", "0");
-            });
-
-            $(".images-gallery img").click(function () {
-                $("#full-image").attr("src", $(this).attr("src"));
-                imageIndex = $(this).data("index");
-                $('#image-viewer').show();
-            });
-
-            $("#image-viewer .close").click(function () {
-                $('#image-viewer').hide();
-            });
             $("#menu-btn, .responsive-menu>div>div>a").click(function () {
                 if (showMenu) {
                     $(".responsive-menu").css("right", "-150%");
@@ -174,46 +143,6 @@
                     }
                 });
             });
-            $("#next-gallery").click(function () {
-                if (galleryIndex < 6) {
-                    galleryIndex++;
-                }
-                else {
-                    galleryIndex = 0;
-                }
-                showGallery(galleryIndex);
-            });
-            $("#back-gallery").click(function () {
-                if (galleryIndex > 0) {
-                    galleryIndex--;
-                }
-                else {
-                    galleryIndex = 6;
-                }
-                showGallery(galleryIndex);
-            });
-            $("#next-image").click(function () {
-                if (imageIndex < 7) {
-                    imageIndex++;
-                }
-                else {
-                    imageIndex = 0;
-                }
-                imageView(imageIndex);
-            });
-            $("#back-image").click(function () {
-                if (imageIndex > 0) {
-                    imageIndex--;
-                }
-                else {
-                    imageIndex = 7;
-                }
-                imageView(imageIndex);
-            });
-            function imageView(imageIndex) {
-                let galleryObj = galleryList[galleryIndex];
-                $("#full-image").attr("src", `./images/${galleryObj.imagePath}/${imageIndex + 1}.jpg`);
-            }
         });
     </script>
 </head>
@@ -299,7 +228,7 @@
                 <div class="col-8 text-uppercase d-none d-lg-block">
                     <div class="row">
                         <div class="col-3 top-50 text-center border-right border-secondary menu-label">
-                            <a href="#references">Referenciáink</a>
+                            <a href="./gallery.html">Referenciáink</a>
                         </div>
                         <div
                             class="col-3 top-50 text-center border-right border-secondary tevekenyseg-square menu-label">
@@ -336,7 +265,7 @@
                 <div class="col-8 text-uppercase d-none d-lg-block">
                     <div class="row">
                         <div class="col-3 text-center border-right border-secondary menu-label">
-                            <a href="#references" class="text-dark">Referenciáink</a>
+                            <a href="./gallery.html" class="text-dark">Referenciáink</a>
                         </div>
                         <div class="col-3 text-center border-right border-secondary tevekenyseg-square menu-label">
                             <a href="#tevekenyseg" class="text-dark tevekenyseg">Tevékenységeink</a>
@@ -428,29 +357,6 @@
         </div>
     </div>
     <div class="row-gallery-line"></div>
-    <div class="references" id="references">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-left text-sm-center mt-4 mb-3">
-                    <h3>Referenciáink</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 mt-4">
-                    <div class="img-grid">
-                        <div class="item1 gallery-item" data-index="0"><i class="fa-solid fa-eye eye"></i></div>
-                        <div class="item2 gallery-item" data-index="1"><i class="fa-solid fa-eye eye"></i></div>
-                        <div class="item3 gallery-item" data-index="2"><i class="fa-solid fa-eye eye"></i></div>
-                        <div class="item4 gallery-item" data-index="3"><i class="fa-solid fa-eye eye"></i></div>
-                        <div class="item5 gallery-item" data-index="4"><i class="fa-solid fa-eye eye"></i></div>
-                        <div class="item6 gallery-item" data-index="5"><i class="fa-solid fa-eye eye"></i></div>
-                        <div class="item7 gallery-item" data-index="6"><i class="fa-solid fa-eye eye"></i></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
     <div class="row-us-works" id="tevekenyseg">
         <div class="container">
             <div class="row">
@@ -656,71 +562,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="gallery">
-        <div class="container-fluid mt-5">
-            <div class="row">
-                <div class="col-12 close-images">
-                    <i class="fa-solid fa-x"></i>
-                </div>
-            </div>
-            <div class="row w-100">
-                <div class="col-12 w-100 d-flex justify-content-between">
-                    <button class="btn" id="back-gallery">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button class="btn" id="next-gallery">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="row w-100">
-                <div class="col-12 col-md-6 mt-3 text-center">
-                    <h3 id="gallery-title"></h3>
-                    <p id="gallery-text"></p>
-                </div>
-                <div class="col-12 col-md-6 images-gallery">
-                    <div class="row">
-                        <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg0" loading="lazy" alt="">
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg1" loading="lazy" alt="">
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg2" loading="lazy" alt="">
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg3" loading="lazy" alt="">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg4" loading="lazy" alt="">
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg5" loading="lazy" alt="">
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg6" loading="lazy" alt="">
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <img class="gallery-images" id="gImg7" loading="lazy" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="image-viewer">
-        <span class="close">&times;</span>
-        <button class="btn image-btn" id="back-image">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="btn image-btn" id="next-image">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-        <img class="modal-content" id="full-image" loading="lazy" alt="">
     </div>
     <div class="responsive-menu">
         <div class="row">
