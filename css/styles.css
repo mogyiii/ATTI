@@ -231,6 +231,9 @@ h3{
 .kapcsolat-icon{
     font-size: 1.8em;
 }
+#tevekenyseg-img{
+    margin-top: 50px;
+}
 
 @media screen and (max-width: 992px) and (min-width: 767px) {
     .menu-container {
@@ -263,6 +266,7 @@ h3{
     .slider-split {
         margin-top: 380px;
     }
+
 }
 @media screen and (max-width: 766px){
     .menu-container {
@@ -282,6 +286,11 @@ h3{
     }
     .header-icons {
         font-size: 1.5em;
+    }
+}
+@media screen and (max-width: 1400px){
+    #tevekenyseg-img{
+        margin-top: 80px;
     }
 }
 
