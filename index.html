@@ -40,6 +40,15 @@
         $(document).ready(function () {
             $("#tab-nav-1").prop('checked', true);
             $("#tab-1:first").addClass("checked-tab");
+
+            tevekenysegGeneral = './images/tevekenyseg/general_stock.jpg';
+            tevekenysegSzerkezetepites = './images/tevekenyseg/szerkezetepites_stock.jpg';
+            tevekenysegUtepites = './images/tevekenyseg/utepites_stock.jpg';
+            tevekenysegIparipadlo = './images/tevekenyseg/ipari_padlo_stock.jpg';
+
+            $("#tevekenyseg-img").attr("src", tevekenysegGeneral);
+            
+
             let slideIndex = 1;
             var touched = Date.now();
             var showMenu = false;
@@ -90,6 +99,22 @@
                     let dataId = $(this).data("id");
                     let tab = $(`#${dataId}:first`);
                     tab.addClass("checked-tab");
+                    let src;
+                    switch (dataId) {
+                        case 'tab-1':
+                            src = tevekenysegGeneral;
+                            break;
+                        case 'tab-2':
+                            src = tevekenysegSzerkezetepites;
+                            break;
+                        case 'tab-3':
+                            src = tevekenysegUtepites;
+                            break;
+                        case 'tab-4':
+                            src = tevekenysegIparipadlo;
+                            break;
+                    }
+                    $("#tevekenyseg-img").attr("src", src);
                 }
             });
 
@@ -388,52 +413,88 @@
 
                         <div class="tabs">
                             <div id="tab-1">
-                                <h2>General kivitelezés</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla tortor, a
-                                    posuere
-                                    urna. Praesent urna quam, semper ut ultricies et, mollis ac elit. </p>
+                                <h2>Generálkivitelezés</h2>
+                                <p>
+                                    Cégünk elkötelezett amellett, hogy ügyfeleink elképzeléseit valóra váltsa, legyen
+                                    szó bármilyen építési projektről. Tapasztalt csapatunk felügyeli és irányítja a
+                                    teljes folyamatot, hogy Önnek csak az álmai megvalósítására kelljen koncentrálnia.
+                                </p>
+                                <p>
+                                    Mi tudjuk, hogy minden építkezés egyedi és különleges, ezért a generálkivitelezés
+                                    során személyre szabott megoldásokat nyújtunk. Csapatunk a legújabb technikák és
+                                    műszaki innovációk mellett követi a legmagasabb minőségi szabványokat, hogy
+                                    garantáljuk a kiváló minőségű végeredményt.
+                                </p>
+                                <p>
+                                    Az Origo Univerzál Kft. csapata minden projektet szenvedéllyel és elkötelezettséggel
+                                    kezel, mert hiszünk abban, hogy az építészet ereje megváltoztathatja az emberek
+                                    életét. Legyen szó lakóházról, irodaházból vagy kereskedelmi létesítményről, mi
+                                    mindig a legjobb eredményre törekszünk.
+                                </p>
                             </div>
                             <div id="tab-2">
-                                <h2>Szerkezet építés</h2>
-                                <p>Építőmérnökeink vezetésével az elmúlt évek során nagy fejlődésen ment keresztül a
-                                    szerkezetépítéssel foglalkozó részlegünk.
-                                    Családi házaktól kezdve, műtaűrgyakon keresztül, a csarnokok építéséig számos
-                                    sikeres projektet volt módunk átadni országosan.</p>
+                                <h2>Szerkezetépítés</h2>
+                                <p>
+                                    Építőmérnökeink vezetésével az elmúlt évek során nagy fejlődésen ment keresztül a
+                                    szerkezetépítéssel foglalkozó részlegünk. Családi házaktól kezdve, műtárgyakon
+                                    keresztül, a csarnokok építéséig számos sikeres projektet volt módunk átadni
+                                    országosan.
+                                </p>
+                                <p>
+                                    Cégünk elszánt amellett, hogy olyan építményeket hozzon létre, amelyek kifogástalan
+                                    szerkezeti stabilitással és esztétikai szépséggel rendelkeznek.
+                                </p>
+                                <p>
+                                    Az Origo Univerzál Kft. szakemberei felügyelik az egész szerkezetépítési folyamatot,
+                                    figyelve a részletekre és a minőségre. Elkötelezettek vagyunk amellett, hogy a
+                                    legjobb anyagokat és technológiákat alkalmazzuk, és szorosan együttműködünk
+                                    megbízható beszállítóinkkal, hogy kiváló minőségű eredményeket érjünk el.
+                                </p>
                             </div>
                             <div id="tab-3">
                                 <h2>Útépítés</h2>
-                                <p>Az útépítés tevékenységünk szerves részét képezi, hiszen a kezdetekben az útburkolat
-                                    építés és helyreállítás volt a fő profilunk.
-                                    Szakemberink több évtizedes tapasztalatával, valamint fejlett gépparkunk
-                                    segítségével képesek vagyunk a legmagasabb minőségben végezni útépítési munkáinkat.
+                                <p>
+                                    Az útépítés tevékenységünk szerves részét képezi, hiszen a kezdetekben az útburkolat
+                                    építés és helyreállítás volt a fő profilunk. Szakemberink több évtizedes
+                                    tapasztalatával, valamint fejlett gépparkunk segítségével képesek vagyunk a
+                                    legmagasabb minőségben végezni útépítési munkáinkat.
+                                </p>
+                                <p>
+                                    Mérnökeink gondosan tervezik az utak geometriáját és kiválasztják az optimális
+                                    aszfaltkeveréket, figyelembe véve az adott terhelést, forgalmat és környezeti
+                                    tényezőket. Így biztosítjuk, hogy az általunk épített utak hosszú élettartammal és
+                                    ellenálló képességgel rendelkezzenek.
+                                </p>
+                                <p>
+                                    Elkötelezettek vagyunk a fenntarthatóság iránt az útépítésben is. Fontos számunkra a
+                                    környezeti tényezők figyelembevétele és a megfelelő útépítési módszerek alkalmazása.
+                                    Útjaink tervezése és kivitelezése során törekszünk a környezeti terhelés
+                                    minimalizálására.
                                 </p>
                             </div>
                             <div id="tab-4">
                                 <h2>Ipari padlók</h2>
-                                <p>Fusce vel eros eu lectus ultricies fermentum vestibulum adipiscing odio. Suspendisse
-                                    ultricies, metus nec dapibus pharetra, quam arcu vulputate nisl, a pretium nisi
-                                    velit id
-                                    ante. Nunc auctor augue sit amet orci vestibulum id placerat nulla pellentesque.
-                                    Duis vel
-                                    quam velit. Ut auctor ipsum quis lacus semper non pretium mi dignissim. Morbi
-                                    ultrices augue
-                                    eget nisi hendrerit placerat. Mauris rhoncus urna quis metus congue quis condimentum
-                                    risus
-                                    interdum. Nam lobortis lectus et enim laoreet mattis. Integer faucibus ullamcorper
-                                    erat, at
-                                    rhoncus leo bibendum sed. Mauris libero urna, placerat non pretium ac, elementum et
-                                    arcu.
-                                    Aliquam non tellus diam, vel scelerisque odio. Etiam a quam et enim vehicula feugiat
-                                    posuere
-                                    at dui. Phasellus at nisl quam. Integer nisi mi, varius vitae placerat viverra,
-                                    dapibus
-                                    vitae massa. Nullam ut orci vitae nisi ornare aliquam in eget orci.</p>
+                                <p>
+                                    Szakértelmünk és tapasztalatunk alapján garantáljuk megrendelőink számára a kiváló
+                                    minőségű és tartós ipari padlók készítését legyen szó raktárakról, üzemcsarnokokról
+                                    vagy gyártócsarnokokról. Büszkén közöljük, hogy eddig már több mint 40 000
+                                    négyzetméternyi ipari padlót hoztunk létre ügyfeleink számára.
+                                </p>
+                                <p>
+                                    Az ipari padlók kialakítása és kivitelezése számunkra nem csupán feladat, hanem
+                                    szenvedély. Rendszerünk a legmodernebb technológiákra épül, hogy biztosítsa az
+                                    egyenletes felületet, a kiváló kopásállóságot és a könnyű tisztíthatóságot.
+                                </p>
+                                <p>
+                                    Referenciáink és elégedett ügyfeleink igazolják, hogy a minőség és a szakértelem
+                                    milyen fontos számunkra.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-3 d-none d-lg-block">
-                    <img src="images/worker2.jpg" width="100%" loading="lazy" alt="">
+                    <img width="100%" loading="lazy" alt="" id="tevekenyseg-img">
                 </div>
             </div>
         </div>
@@ -448,26 +509,39 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a href="https://www.betonkorr.hu/"><img src="./images/partnerek/betonkorr.webp" width="150" alt="Betonkorr Kft."></a>
+                    <a href="https://www.piramisepitohaz.hu/"><img
+                            src="./images/partnerek/Ujhaz-Piramis-Logo_feher_hattere_RGB_JO.png" width="100"
+                            alt="Piramis Építőház Kft."></a>
+                </div>
+
+                <div class="col-12 col-md-3 d-flex justify-content-center">
+                    <a href="https://www.garden-kerteszet.hu/"><img src="./images/partnerek/garden.png" width="150"
+                            alt="Garden Kft."></a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a href="https://www.garden-kerteszet.hu/"><img src="./images/partnerek/garden.png" width="150" alt="Garden Kft."></a>
+                    <a href="http://szemcseszoras.com/kapcsolat/"><img src="./images/partnerek/koncz.png" width="150"
+                            alt="Koncz és társa Bt."></a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a href="http://szemcseszoras.com/kapcsolat/"><img src="./images/partnerek/koncz.png" width="150" alt="Koncz és társa Bt."></a>
+                    <a href="http://mpaladin.hu/"><img src="./images/partnerek/Mpaladin.png" width="150"
+                            alt="Mpaladin Kft."></a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a href="http://mpaladin.hu/"><img src="./images/partnerek/Mpaladin.png" width="150" alt="Mpaladin Kft."></a>
+                    <a href="https://www.rosenberger.com/br_en/company/rosenberger_hungary.php"><img
+                            src="./images/partnerek/Rosenberger_Logo_red_sRGB_65-1.png" width="150"
+                            alt="Rosenberger Magyarország Kft."></a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a href="https://www.rosenberger.com/br_en/company/rosenberger_hungary.php"><img src="./images/partnerek/Rosenberger_Logo_red_sRGB_65-1.png" width="150"
-                        alt="Rosenberger Magyarország Kft."></a>
+                    <a href="https://www.nemzeticegtar.hu/nemzeticegtar/cegadat/1309190570/SungEel-Hitech-Hungary-Kft"><img
+                            src="./images/partnerek/sungEel.png" width="150" alt="SungEel Hitech Hungary Kft."></a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a href="https://www.nemzeticegtar.hu/nemzeticegtar/cegadat/1309190570/SungEel-Hitech-Hungary-Kft"><img src="./images/partnerek/sungEel.png" width="150" alt="SungEel Hitech Hungary Kft."></a>
+                    <a href="https://www.betonkorr.hu/"><img src="./images/partnerek/betonkorr.webp" width="150"
+                            alt="Betonkorr Kft."></a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a href="https://www.piramisepitohaz.hu/"><img src="./images/partnerek/Ujhaz-Piramis-Logo_feher_hattere_RGB_JO.png" width="100" alt="Piramis Építőház Kft."></a>
+                    <a href="https://www.marosepker.hu/hu"><img src="./images/partnerek/maros.png" width="150"
+                            alt="Maros-Épker Kft."></a>
                 </div>
             </div>
         </div>
@@ -523,7 +597,7 @@
                             <img src="./images/logo_2017.png" width="40%" alt="logo">
                         </div>
                         <div class="col-12 text-center">
-                            Számunkra nincs kis vagy nagy feladat, csak elvégzendő feladat.
+                            Origo Univerzál - Minőséget reprezentál.
                         </div>
                         <div class="col-12 d-flex justify-content-around">
                             <a href="https://www.facebook.com/origouniverzal/">
@@ -545,10 +619,10 @@
                 </div>
                 <div class="col-12 col-md-3 mt-5 mt-md-0 order-md-3 order-2">
                     <div class="row">
-                        <div class="col-12 col-md-1 d-flex justify-content-center align-items-center kapcsolat-icon">
+                        <div class="col-12 col-md-2 d-flex justify-content-center align-items-center kapcsolat-icon">
                             <i class="fa-sharp fa-solid fa-location-dot"></i>
                         </div>
-                        <div class="col-12 col-md-11">
+                        <div class="col-12 col-md-10">
                             <div class="row">
                                 <div class="col-12 d-flex justify-content-md-start justify-content-center">
                                     <h4>Cím:</h4>
