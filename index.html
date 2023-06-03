@@ -139,6 +139,9 @@
                 return (elapsed / 1000);
             }
             $("#menu-btn, .responsive-menu>div>div>a").click(function () {
+                showResponsiveMenu();
+            });
+            function showResponsiveMenu(){
                 if (showMenu) {
                     $(".responsive-menu").css("right", "-150%");
 
@@ -146,16 +149,9 @@
                     $(".responsive-menu").css("right", "0%");
                 }
                 showMenu = !showMenu;
-            });
+            }
             $("#tevekenyseg-dropdown").click(function () {
-                if (showdropdown) {
-                    $("#dropdown-content-container").css("display", "none");
-                    $("#tevekenyseg-dropdown").css("transform", "rotate(0deg)");
-                } else {
-                    $("#dropdown-content-container").css("display", "block");
-                    $("#tevekenyseg-dropdown").css("transform", "rotate(180deg)");
-                }
-                showdropdown = !showdropdown;
+                tevekenysegDropdown();
             });
             $(".tevekenyseg-al").click(function () {
                 let dataId = $(this).data("id");
@@ -169,7 +165,19 @@
                         tab.addClass("checked-tab");
                     }
                 });
+                tevekenysegDropdown();
+                showResponsiveMenu();
             });
+            function tevekenysegDropdown(){
+                if (showdropdown) {
+                    $("#dropdown-content-container").css("display", "none");
+                    $("#tevekenyseg-dropdown").css("transform", "rotate(0deg)");
+                } else {
+                    $("#dropdown-content-container").css("display", "block");
+                    $("#tevekenyseg-dropdown").css("transform", "rotate(180deg)");
+                }
+                showdropdown = !showdropdown;
+            }
         });
     </script>
 </head>
