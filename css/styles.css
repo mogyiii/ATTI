@@ -12,6 +12,7 @@ body {
 }
 
 .menu-container {
+    top: -50%;
     position: fixed;
     background-color: rgb(246, 246, 246);
     color: rgb(29, 29, 29) !important;
