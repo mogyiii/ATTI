@@ -280,6 +280,7 @@ h3{
     }
     .gallery {
         overflow: scroll;
+        height: 670px;
     }
     .row-us-works{
         height: 880px;
