@@ -136,16 +136,42 @@
                 }
                 showdropdown = !showdropdown;
             });
+
             $("#next-gallery").click(function () {
-                if (galleryIndex < 6) {
-                    galleryIndex++;
-                }
-                else {
-                    galleryIndex = 0;
-                }
-                showGallery(galleryIndex);
+                nextGallery();
             });
+
             $("#back-gallery").click(function () {
+                backGallery();
+            });
+
+            $("#next-image").click(function () {
+                nextImage();
+            });
+
+            $("#back-image").click(function () {
+                backImage();
+            });
+
+            $(document).on("keydown", function (e) {
+                // Jobb nyíl
+                if (e.keyCode == 39) {
+                    nextImage();
+                }
+                // Bal nyíl
+                if (e.keyCode == 37) {
+                    backImage();
+                }
+                if(e.key === "Escape"){
+                    $('#image-viewer').hide();
+                }
+            });
+
+            function imageView(imageIndex) {
+                let galleryObj = galleryList[galleryIndex];
+                $("#full-image").attr("src", `./images/${galleryObj.imagePath}/${imageIndex + 1}.jpg`);
+            }
+            function backGallery() {
                 if (galleryIndex > 0) {
                     galleryIndex--;
                 }
@@ -153,8 +179,17 @@
                     galleryIndex = 6;
                 }
                 showGallery(galleryIndex);
-            });
-            $("#next-image").click(function () {
+            }
+            function nextGallery() {
+                if (galleryIndex < 6) {
+                    galleryIndex++;
+                }
+                else {
+                    galleryIndex = 0;
+                }
+                showGallery(galleryIndex);
+            }
+            function nextImage() {
                 if (imageIndex < 7) {
                     imageIndex++;
                 }
@@ -162,8 +197,8 @@
                     imageIndex = 0;
                 }
                 imageView(imageIndex);
-            });
-            $("#back-image").click(function () {
+            }
+            function backImage() {
                 if (imageIndex > 0) {
                     imageIndex--;
                 }
@@ -171,10 +206,6 @@
                     imageIndex = 7;
                 }
                 imageView(imageIndex);
-            });
-            function imageView(imageIndex) {
-                let galleryObj = galleryList[galleryIndex];
-                $("#full-image").attr("src", `./images/${galleryObj.imagePath}/${imageIndex + 1}.jpg`);
             }
         });
     </script>
@@ -359,11 +390,15 @@
                 <a href="./index.html#tevekenyseg" class="tevekenyseg text-dark mr-5">Tevékenységeink</a>
                 <button id="tevekenyseg-dropdown" class="btn ml-5"><i class="fa-solid fa-chevron-down"></i></button>
                 <div class="dropdown-content text-left" id="dropdown-content-container">
-                    <a href="./index.html#tevekenyseg" data-id="tab-1" class="text-dark menu-label tevekenyseg-al">Generálkivitelezés</a>
-                    <a href="./index.html#tevekenyseg" data-id="tab-2" class="text-dark menu-label tevekenyseg-al">Szerkezet
+                    <a href="./index.html#tevekenyseg" data-id="tab-1"
+                        class="text-dark menu-label tevekenyseg-al">Generálkivitelezés</a>
+                    <a href="./index.html#tevekenyseg" data-id="tab-2"
+                        class="text-dark menu-label tevekenyseg-al">Szerkezet
                         építés</a>
-                    <a href="./index.html#tevekenyseg" data-id="tab-3" class="text-dark menu-label tevekenyseg-al">Útépítés</a>
-                    <a href="./index.html#tevekenyseg" data-id="tab-4" class="text-dark menu-label tevekenyseg-al">Ipari padlók</a>
+                    <a href="./index.html#tevekenyseg" data-id="tab-3"
+                        class="text-dark menu-label tevekenyseg-al">Útépítés</a>
+                    <a href="./index.html#tevekenyseg" data-id="tab-4" class="text-dark menu-label tevekenyseg-al">Ipari
+                        padlók</a>
                 </div>
             </div>
             <div class="col-12 text-center menu-label py-3">
