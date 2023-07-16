@@ -23,7 +23,7 @@ body {
     transition: .6s;
 }
 .menu-label:hover{
-    box-shadow: inset 50vh 0 0 0 #2b2b2bc6;
+    box-shadow: inset 50vh 0 0 0 #7fc759;
     color: rgb(234, 234, 234) !important;
 }
 a {
