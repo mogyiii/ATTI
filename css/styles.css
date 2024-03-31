@@ -19,13 +19,25 @@ body {
     transition: .2s;
     z-index: 3;
 }
-.menu-label{
+
+.menu-label {
     transition: .6s;
 }
-.menu-label:hover{
+
+.menu-label:hover {
     box-shadow: inset 50vh 0 0 0 #7fc759;
     color: rgb(234, 234, 234) !important;
 }
+
+.menu-label-responsive {
+    transition: .6s;
+}
+
+.menu-label-responsive:hover {
+    box-shadow: inset 90vh 0 0 0 #7fc759;
+    color: rgb(234, 234, 234) !important;
+}
+
 a {
     text-decoration: none;
 }
@@ -174,7 +186,8 @@ a:active {
     font-size: 1.8em;
     transition: .3s;
 }
-.facebook-btn:hover{
+
+.facebook-btn:hover {
     /* opacity: .9; */
     background-color: #7fc759;
     color: rgb(234, 234, 234);
@@ -192,11 +205,13 @@ a:active {
     border: 0px solid #fff;
     border-radius: 4px;
 }
-.instagram-btn:hover{
+
+.instagram-btn:hover {
     /* opacity: .9; */
     background-color: #7fc759;
 }
-.responsive-menu{
+
+.responsive-menu {
     width: 90%;
     position: fixed;
     z-index: 101;
@@ -207,32 +222,44 @@ a:active {
     color: black !important;
 }
 
-.responsive-menu>a{
+.responsive-menu>a {
     line-height: 20px !important;
 }
-.partnerek{
+
+.partnerek {
     background-color: rgb(240, 240, 240);
 }
-.partnerek > img {
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+
+.partnerek>img {
+    -webkit-filter: grayscale(100%);
+    /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
 }
-h3{
+
+h3 {
     text-decoration: underline;
     text-decoration-color: #7fc759;
 }
-.kapcsolat{
+
+.kapcsolat {
     background-color: rgb(30, 30, 30);
     color: rgb(234, 234, 234);
 }
-.kapcsolat > a{
+
+.kapcsolat>a {
     color: rgb(234, 234, 234) !important
 }
-.kapcsolat-icon{
+
+.kapcsolat-icon {
     font-size: 1.8em;
 }
-#tevekenyseg-img{
+
+#tevekenyseg-img {
     margin-top: 50px;
+}
+
+small {
+    font-size: .6em;
 }
 
 @media screen and (max-width: 992px) and (min-width: 767px) {
@@ -253,44 +280,53 @@ h3{
         position: relative;
         margin-top: 300px;
     }
-    .row-us-works{
+
+    .row-us-works {
         height: 800px;
     }
 }
+
 @media screen and (max-width: 1200px) and (min-width: 992px) {
     .slider-split {
         margin-top: 370px;
     }
 }
+
 @media screen and (min-width: 1201px) {
     .slider-split {
         margin-top: 380px;
     }
 
 }
-@media screen and (max-width: 766px){
+
+@media screen and (max-width: 766px) {
     .menu-container {
         top: 0%;
     }
+
     .slider-split {
         position: relative;
         margin-top: 240px;
         height: 50px;
         z-index: -1;
     }
+
     .gallery {
         overflow: scroll;
         height: 670px;
     }
-    .row-us-works{
+
+    .row-us-works {
         height: 880px;
     }
+
     .header-icons {
         font-size: 1.5em;
     }
 }
-@media screen and (max-width: 1400px){
-    #tevekenyseg-img{
+
+@media screen and (max-width: 1400px) {
+    #tevekenyseg-img {
         margin-top: 80px;
     }
 }
@@ -299,6 +335,7 @@ h3{
     .menu-container {
         top: -50%;
     }
+
     .responsive-menu {
         display: none;
     }

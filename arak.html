@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./images/favico.png" />
+    <title>Origo Univerzál Kft.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Szabó Máté (szabo.mate960722@gmail.com)">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/tabs-style.css">
+    <link rel="stylesheet" href="css/dropdown-style.css">
+    <link rel="stylesheet" href="css/img-grid-style.css">
+    <link rel="stylesheet" href="css/image-viewer.css">
+    <script>
+        $(document).ready(function () {
+            $("#tab-nav-1").prop('checked', true);
+            $("#tab-1:first").addClass("checked-tab");
+
+            var showMenu = false;
+            var showdropdown = false;
+            var arakshowdropdown = false;
+            let url = new URL(window.location.href);
+            let search_params = url.searchParams;
+            let $pageType;
+            switch (search_params.get('id')) {
+                case 'lakossagi':
+                    $pageType = $('#lakossagi-arak');
+                    break;
+                case 'vallalati':
+                    $pageType = $('#vallalati-arak');
+                    break;
+                default:
+                    window.location.href = "/"
+            }
+
+            $pageType.css('display', 'block')
+
+            $(window).bind('scroll', function (e) {
+                var scroll = $(window).scrollTop();
+                if ($(window).width() > 992) {
+                    if (scroll > 120) {
+
+                        $('.menu-container').css('top', '0%');
+                    } else {
+                        $('.menu-container').css('top', '-50%');
+                    }
+                }
+
+            })
+
+            $("[name=tabs]").change(function () {
+                if (this.checked) {
+                    $("div").removeClass("checked-tab");
+                    let dataId = $(this).data("id");
+                    let tab = $(`#${dataId}:first`);
+                    tab.addClass("checked-tab");
+                }
+            });
+
+            $("#menu-btn, .responsive-menu>div>div>a").click(function () {
+                if (showMenu) {
+                    $(".responsive-menu").css("right", "-150%");
+
+                } else {
+                    $(".responsive-menu").css("right", "0%");
+                }
+                showMenu = !showMenu;
+            });
+
+            $(".tevekenyseg-al").click(function () {
+                let dataId = $(this).data("id");
+                //let input = $("[name=tabs]").find(x => $(x).data("id") == $(this).data("id"))
+                $("[name=tabs]").each(function (i, obj) {
+                    if ($(obj).data("id") === dataId) {
+                        $(obj).prop("checked", true);
+                        $("div").removeClass("checked-tab");
+                        let dataId = $(obj).data("id");
+                        let tab = $(`#${dataId}:first`);
+                        tab.addClass("checked-tab");
+                    }
+                });
+            });
+            $("#tevekenyseg-dropdown").click(function () {
+                if (showdropdown) {
+                    $("#dropdown-content-container").css("display", "none");
+                    $("#tevekenyseg-dropdown").css("transform", "rotate(0deg)");
+                } else {
+                    $("#dropdown-content-container").css("display", "block");
+                    $("#tevekenyseg-dropdown").css("transform", "rotate(180deg)");
+                }
+                showdropdown = !showdropdown;
+                arakshowdropdown = false
+            });
+            //Arak dropdown
+            $("#arak-dropdown").click(function () {
+                arakDropdown();
+            });
+            $(".arak-al").click(function () {
+                let dataId = $(this).data("id");
+                let pageType = dataId === 'tab-1' ? 'lakossagi' : 'vallalati';
+                window.location.replace(`/arak.html?id=${pageType}`);
+                arakDropdown();
+                showResponsiveMenu();
+            });
+            function arakDropdown() {
+                if (arakshowdropdown) {
+                    $("#dropdown-content-container-arak").css("display", "none");
+                    $("#arak-dropdown").css("transform", "rotate(0deg)");
+                } else {
+                    $("#dropdown-content-container-arak").css("display", "block");
+                    $("#arak-dropdown").css("transform", "rotate(180deg)");
+                }
+                arakshowdropdown = !arakshowdropdown;
+                showdropdown = false
+            }
+        });
+    </script>
+    <style>
+        #lakossagi-arak {
+            display: none;
+        }
+
+        #vallalati-arak {
+            display: none;
+        }
+
+        .card-container {
+            background-color: #ffffff;
+            /* Háttérszín, ahol a fény csillan */
+            position: relative;
+            overflow: hidden;
+
+            border: 0px solid transparent;
+            border-radius: 16px;
+            height: 100%;
+            transform:
+                rotate3d(.5, -.566, 0, 25deg) rotate(2deg);
+            box-shadow:
+                2em 4em 6em -2em rgba(0, 0, 0, 0.278),
+                1em 2em 3.5em -2.5em rgba(0, 0, 0, 0.227);
+            transition:
+                transform 1s ease,
+                box-shadow 1s ease;
+            animation: rotateIn 1.5s ease forwards;
+        }
+
+        .card-container::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(-45deg, rgba(255, 255, 255, 0) 20%, #d4d4d4 50%, rgba(255, 255, 255, 0) 80%);
+            animation: shine 2s ease forwards;
+        }
+
+        .card {
+            padding: 2px;
+            height: 100%;
+            border: 4px solid transparent;
+            border-radius: 16px;
+            background: white;
+            background-clip: padding-box;
+            padding: 10px;
+            /* just to show box-shadow still works fine */
+            box-shadow: 0 3px 9px rgb(208, 208, 208), inset 0 0 9px rgb(214, 214, 214);
+
+        }
+
+        .card::after {
+            position: absolute;
+            top: -4px;
+            bottom: -4px;
+            left: -4px;
+            right: -4px;
+            background: linear-gradient(#7fc759, rgb(65, 65, 65));
+            content: '';
+            z-index: -1;
+            border-radius: 16px;
+        }
+
+        @keyframes rotateIn {
+            from {
+                transform: rotate3d(.5, -.866, 0, 15deg) rotate(1deg);
+                /* A kezdő állapot */
+            }
+
+            to {
+                transform: none;
+                /* A végállapot */
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translate(-50%, -50%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translate(150%, 150%);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row menu header-text">
+                <div class="col-3 d-none d-lg-block">
+                    <a href="./index.html"><img src="./images/logo_2017.png" class="logo"
+                            alt="Origo Univerzál Kft."></a>
+                </div>
+                <div class="col-9 text-uppercase d-none d-lg-block">
+                    <div class="row">
+                        <div class="col-3 top-50 text-center border-right border-secondary menu-label">
+                            <a href="./gallery.html" style="color:black !important">Referenciáink</a>
+                        </div>
+                        <div
+                            class="col-2 top-50 text-center border-right border-secondary tevekenyseg-square menu-label">
+                            <a href="./index.html#tevekenyseg" class="tevekenyseg"
+                                style="color:black !important">Tevékenységeink</a>
+                            <div class="dropdown-content text-left">
+                                <a href="./index.html?tevekenysegtype=generalkivitelezes#tevekenyseg" data-id="tab-1"
+                                    class="text-dark menu-label tevekenyseg-al"
+                                    style="color:black !important">Generálkivitelezés</a>
+                                <a href="./index.html?tevekenysegtype=szerkezetepites#tevekenyseg" data-id="tab-2"
+                                    class="text-dark menu-label tevekenyseg-al" style="color:black !important">Szerkezet
+                                    építés</a>
+                                <a href="./index.html?tevekenysegtype=utepites#tevekenyseg" data-id="tab-3"
+                                    class="text-dark menu-label tevekenyseg-al">Útépítés</a>
+                                <a href="./index.html?tevekenysegtype=iparipadlok#tevekenyseg" data-id="tab-4"
+                                    class="text-dark menu-label tevekenyseg-al" style="color:black !important">Ipari
+                                    padlók</a>
+                            </div>
+                        </div>
+                        <div class="col-2 top-50 text-center border-right border-secondary menu-label">
+                            <a href="./index.html#rolunk" style="color:black !important">Rólunk</a>
+                        </div>
+                        <div class="col-2 top-50 text-center border-right border-secondary arak-square menu-label">
+                            <a href="#arak" class="arak" style="color:black !important">Áraink</a>
+                            <div class="dropdown-content text-left">
+                                <a href="#arak" data-id="tab-1" class="text-dark menu-label arak-al">Lakossági árak</a>
+                                <a href="#arak" data-id="tab-2" class="text-dark menu-label arak-al">Vállalati árak</a>
+                            </div>
+                        </div>
+                        <div class="col-2 top-50 text-center menu-label">
+                            <a href="./index.html#kapcsolat" style="color:black !important">Kapcsolat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid menu-container">
+        <div class="container">
+            <div class="row menu">
+                <div class="col-3">
+                    <a href="./index.html"><img src="./images/logo_2017.png" class="logo" loading="lazy"
+                            alt="Origo Univerzál Kft."></a>
+                </div>
+                <div class="col-9 text-uppercase d-none d-lg-block">
+                    <div class="row">
+                        <div class="col-2 text-center border-right border-secondary menu-label">
+                            <a href="./gallery.html" class="text-dark">Referenciáink</a>
+                        </div>
+                        <div class="col-2 text-center border-right border-secondary tevekenyseg-square menu-label">
+                            <a href="./index.html#tevekenyseg" class="text-dark tevekenyseg">Tevékenységeink</a>
+                            <div class="dropdown-content text-left">
+                                <a href="./index.html?tevekenysegtype=generalkivitelezes#tevekenyseg" data-id="tab-1"
+                                    class="text-dark tevekenyseg-al">Generálkivitelezés</a>
+                                <a href="./index.html?tevekenysegtype=szerkezetepites#tevekenyseg" data-id="tab-2"
+                                    class="text-dark tevekenyseg-al">Szerkezet
+                                    építés</a>
+                                <a href="./index.html?tevekenysegtype=utepites#tevekenyseg" data-id="tab-3"
+                                    class="text-dark tevekenyseg-al">Útépítés</a>
+                                <a href="./index.html?tevekenysegtype=iparipadlok#tevekenyseg" data-id="tab-4"
+                                    class="text-dark tevekenyseg-al">Ipari
+                                    padlók</a>
+                            </div>
+                        </div>
+                        <div class="col-2 text-center border-right border-secondary menu-label">
+                            <a href="./index.html#rolunk" class="text-dark">Rólunk</a>
+                        </div>
+                        <div class="col-2 text-center border-right border-secondary arak-square menu-label">
+                            <a href="#arak" class="text-dark arak">Árak</a>
+                            <div class="dropdown-content text-left">
+                                <a href="#arak" data-id="tab-1" class="text-dark arak-al">Lakossági árak</a>
+                                <a href="#arak" data-id="tab-2" class="text-dark arak-al">Vállalati árak</a>
+                            </div>
+                        </div>
+                        <div class="col-2 text-center menu-label">
+                            <a href="./index.html#kapcsolat" class="text-dark">Kapcsolat</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 d-xl-none d-lg-none d-md-block d-sm-block  hamburger-icon">
+                    <button class="btn" id="menu-btn"><i class="fa-solid fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3" id="lakossagi-arak">
+        <div class="row">
+            <div class="col-12 text-left text-md-center mt-4 mb-3">
+                <h3 class="text-uppercase">Lakossági árak 2024.03.01-től</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 mt-2">
+                <div class="card-container">
+                    <div class="card">
+                        <span class="text-center">
+                            <h5><b>Családiház építés</b>:<br><small>(Áraink tartalmazzák az anyagköltségeket is)</small>
+                            </h5>
+                        </span>
+                        <hr>
+                        <span>
+                            <p><i>Családi ház tervezés nettó 8.500.- Ft. + ÁFA/ nettó m<sup>2</sup>
+                                    -től</i><br><small>Koncepcionális
+                                    tervezés,
+                                    komplett egyszerű bejelentési dokumentáció építészeti és nem építészeti
+                                    elemei</small>
+                            </p>
+                        </span>
+                        <span>
+                            <p><i>Kulcsrakész kivitelezés nettó 639.000.- Ft. + ÁFA/ nettó m<sup>2</sup>
+                                    -től</i><br><small>Magas minőségű
+                                    anyagok
+                                    felhasználásával, hőszivattyúval, padlófűtéssel</small></p>
+                        </span>
+                        <span>
+                            <p><i>Szerkezetkész kivitelezés nettó 380.000.- Ft. + ÁFA / nettó
+                                    m<sup>2</sup>-től</i><br><small>Beépített
+                                    nyílászárókkal, tetőfedéssel, bádogos munkákkal</small></p>
+                        </span>
+                        <span>
+                            <p><i>Alapozási munkák könnyűszerkezetes házakhoz nettó 39.000.- FT + ÁFA / bruttó
+                                    m<sup>2</sup>-től</i><br><small>Geodéziai kitűzéssel, kitermelt föld
+                                    elszállításával, betonozási és
+                                    betonacélszerelési munkákkal</small></p>
+                        </span>
+                        <span>
+                            <p><i>Épületbontási munkák nettó 10.500.- FT + ÁFA / lég
+                                    m<sup>3</sup>-től</i><br><small>Tartalmazza az épület
+                                    bontását, hulladék elszállítását, épület kontúrján belül tereprendezést</small></p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="card-container">
+                    <div class="card">
+                        <span class="text-center">
+                            <h5><b>Egyéb kőművesmunkák</b>:<br><small>(Áraink <u>nem</u> tartalmazzák az
+                                    anyagköltségeket)</small>
+                            </h5>
+                        </span>
+                        <hr>
+                        <span>
+                            <p><i>Főfalak falazása nettó 8.500.- Ft. + ÁFA / m<sup>2</sup>-től</i><br><small>25-44cm
+                                    névleges vastagságban
+                                    vázkerámia vagy pórusbeton falazóelemekből</small></p>
+                        </span>
+                        <span>
+                            <p><i>Válaszfalak falazása nettó 7.500.- Ft. + ÁFA / m<sup>2</sup>-től</i><br><small>5-15cm
+                                    névleges vastagságban
+                                    vázkerámia vagy pórusbeton falazóelemekből</small></p>
+                        </span>
+                        <span>
+                            <p><i>Áthidalók beépítése nettó 4.500.- Ft. + ÁFA / db-tól</i><br><small>Hagyományos és
+                                    elemmagas
+                                    áthidalókból</small></p>
+                        </span>
+                        <span>
+                            <p><i>Betonacél szerelés nettó 180.- Ft + ÁFA / kg-tól</i><br><small>Szálas vagy hálós
+                                    kiviteleben</small>
+                            </p>
+                        </span>
+                        <span>
+                            <p><i>Betonozási munkák nettó 16.000.- Ft. + ÁFA /
+                                    m<sup>3</sup>-től</i><br><small>Transzportbeton vagy helyszínen
+                                    kevert kivitelben</small></p>
+                        </span>
+                        <span>
+                            <p><i>Homlokzat szigetelési munkák nettó 11.500.- Ft. + ÁFA
+                                    /m<sup>2</sup>-től</i><br><small>Állványozás nélkül,
+                                    alapozással, dübelezéssel, vékonyvakolattal, élvédőkkel, nemesvakolással</small></p>
+                        </span>
+                        <span>
+                            <p><i>Állványozási munkák nettó 7000.- Ft. + ÁFA / m<sup>2</sup> / 30
+                                    naptól</i><br><small>Szállítással,
+                                    összeszereléssel, bontással, takarítással</small></p>
+                        </span>
+                        <span>
+                            <p><i>Födémzsaluzási munkák nettó 11.000.- Ft. + ÁFA /
+                                    m<sup>2</sup>-től</i><br><small>Zsaluanyaggal,
+                                    szállítással,
+                                    építéssel, bontással.</small></p>
+                        </span>
+                        <span>
+                            <p><i>Zsalukő fal készítése nettó 9.125.- Ft. + ÁFA /
+                                    m<sup>2</sup>-től</i><br><small>Betonacélszereléssel,
+                                    kitöltő
+                                    betonozással, fejeléssel</small></p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="card-container">
+                    <div class="card">
+                        <span class="text-center">
+                            <h5><b>Térburkolás</b>:<br><small>(Áraink <u>nem</u> tartalmazzák az
+                                    anyagköltségeket)</small>
+                            </h5>
+                        </span>
+                        <hr>
+                        <span>
+                            <p><i>Földkiemelés nettó 8.000.- Ft. + ÁFA / m<sup>3</sup>-től</i><br><small>Helyszínen
+                                    deponálva, elszállítás
+                                    nélkül</small></p>
+                        </span>
+                        <span>
+                            <p><i>Földelszállítás nettó 10.250.- Ft. + ÁFA / m<sup>3</sup>-től</i><br><small>Rakodással,
+                                    szállítással,
+                                    lerakóhelyi
+                                    díjjal</small></p>
+                        </span>
+                        <span>
+                            <p><i>Zúzottkő útalap nettó 7.500.- Ft. + ÁFA /
+                                    m<sup>3</sup>-től</i><br><small>Tömörítéssel</small></p>
+                        </span>
+                        <span>
+                            <p><i>Soványbeton útalap készítése nettó 9.500.- Ft. + ÁFA /
+                                    m<sup>3</sup>-től</i><br><small>Tömörítéssel,
+                                    utókezeléssel</small></p>
+                        </span>
+                        <span>
+                            <p><i>Kertiszegély építése nettó 3.000.- Ft. + ÁFA /
+                                    m-től</i><br><small>Utókezeléssel</small></p>
+                        </span>
+                        <span>
+                            <p><i>Útszegély építése nettó 5.500.- Ft. + ÁFA / m-től</i><br><small>Utókezeléssel</small>
+                            </p>
+                        </span>
+                        <span>
+                            <p><i>Térburkolás nettó 4.500.- Ft. + ÁFA / m<sup>2</sup>-től</i><br><small>Ágyazóréteg
+                                    készítéssel, tömörítéssel,
+                                    besöpréssel</small></p>
+                        </span>
+                        <span>
+                            <p><i>Blokklépcső építése nettó 12.500.- Ft. + ÁFA / db-tól</i><br><small>Soványbetonba
+                                    ültetve</small>
+                            </p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3" id="vallalati-arak">
+        <div class="row">
+            <div class="col-12 text-left text-md-center mt-4 mb-3">
+                <h3 class="text-uppercase">Vállalati árak 2024.03.01-től</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 mt-2">
+                <div class="card-container">
+                    <div class="card">
+                        <span class="text-center">
+                            <h5><b>Térburkolás, útépítés</b>:<br><small>(Áraink <u>nem</u> tartalmazzák az
+                                    anyagköltségeket)</small>
+                            </h5>
+                        </span>
+                        <hr>
+                        <span>
+                            <p><i>Földkiemelés nettó 2.200.- Ft. + ÁFA / m<sup>3</sup>-től</i><br><small>Helyszínen
+                                    deponálva, elszállítás
+                                    nélkül</small></p>
+                        </span>
+                        <span>
+                            <p><i>Földelszállítás nettó 6.000.- Ft. + ÁFA / m<sup>3</sup>-től</i><br><small>Rakodással,
+                                    szállítással,
+                                    lerakóhelyi
+                                    díjjal</small></p>
+                        </span>
+                        <span>
+                            <p><i>Zúzottkő útalap nettó 4.000.- Ft. + ÁFA /
+                                    m<sup>3</sup>-től</i><br><small>Tömörítéssel, tömörség és
+                                    teherbírás
+                                    méréssel.</small></p>
+                        </span>
+                        <span>
+                            <p><i>Soványbeton útalap készítése nettó 5.500.- Ft. + ÁFA /
+                                    m<sup>3</sup>-től</i><br><small>Tömörítéssel,
+                                    utókezeléssel</small></p>
+                        </span>
+                        <span>
+                            <p><i>Kertiszegély építése nettó 2.000.- Ft. + ÁFA /
+                                    m-től</i><br><small>Utókezeléssel</small></p>
+                        </span>
+                        <span>
+                            <p><i>Útszegély építése nettó 3.500.- Ft. + ÁFA / m-től</i><br><small>Utókezeléssel</small>
+                            </p>
+                        </span>
+                        <span>
+                            <p><i>Térburkolás nettó 2.900.- Ft. + ÁFA / m<sup>2</sup>-től</i><br><small>Ágyazóréteg
+                                    készítéssel, tömörítéssel,
+                                    besöpréssel</small></p>
+                        </span>
+                        <span>
+                            <p><i>Hengerelt aszfaltozás nettó 145.000.- Ft. + ÁFA /
+                                    m<sup>3</sup>-től</i><br><small>Aszfaltterítő géppel való
+                                    bedolgozás anyagostól</small></p>
+                        </span>
+                        <span>
+                            <p><i>Aszfaltmarás nettó 147.000.- Ft. + ÁFA / m<sup>3</sup>-től</i><br><small>Aszfaltterítő
+                                    géppel való
+                                    bedolgozás
+                                    bitumenemulzió terítéssel. Az ár az anyagot tartalmazza!</small></p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="card-container">
+                    <div class="card">
+                        <span class="text-center">
+                            <h5><b>Csarnok építéshez kapcsolódó munkák</b>:<br>
+                                <small>(Áraink <u>nem</u> tartalmazzák az
+                                    anyagköltségeket)</small>
+                            </h5>
+                        </span>
+                        <hr>
+                        <span>
+                            <p><i>Földkiemelés nettó 2.200.- Ft. + ÁFA / m3-től</i><br><small>Helyszínen deponálva,
+                                    elszállítás
+                                    nélkül</small></p>
+                        </span>
+                        <span>
+                            <p><i>Földelszállítás nettó 6.000.- Ft. + ÁFA / m3-től</i><br><small>Rakodással,
+                                    szállítással,
+                                    lerakóhelyi
+                                    díjjal</small></p>
+                        </span>
+                        <span>
+                            <p><i>Zúzottkő útalap nettó 4.000.- Ft. + ÁFA / m3-től</i><br><small>Tömörítéssel, tömörség
+                                    és
+                                    teherbírás
+                                    méréssel.</small></p>
+                        </span>
+                        <span>
+                            <p><i>Betonacél szerelés nettó 140.- Ft + ÁFA / kg-tól</i><br><small>Szálas vagy hálós
+                                    kiviteleben</small>
+                            </p>
+                        </span>
+                        <span>
+                            <p><i>Betonozási munkák nettó 8.000.- Ft. + ÁFA / m3-től</i><br><small>Transzportbeton vagy
+                                    helyszínen
+                                    kevert kivitelben</small></p>
+                        </span>
+                        <span>
+                            <p><i>Ipari padló készítése nettó 2.900.- Ft. + ÁFA / m2-től</i><br><small>Glettelt
+                                    felületben,
+                                    párazásással, dilatáció vágással és tömítéssel</small></p>
+                        </span>
+                        <span>
+                            <p><i>Zsalukő fal készítése nettó 6.125.- Ft. + ÁFA /
+                                    m2-től</i><br><small>Betonacélszereléssel,
+                                    kitöltő
+                                    betonozással, fejeléssel</small></p>
+                        </span>
+                        <span>
+                            <p><i>Alaplemez zsaluzása nettó 11.125.- Ft. + ÁFA / m-től</i><br><small>Építéssel,
+                                    bontással</small>
+                            </p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="responsive-menu">
+        <div class="row">
+            <div class="col-12 text-center menu-label-responsive py-3">
+                <a href="./gallery.html" class="text-dark ">Referenciáink</a>
+            </div>
+            <div class="col-12 text-center menu-label-responsive py-3">
+                <a href="./index.html#tevekenyseg" class="tevekenyseg text-dark mr-5">Tevékenységeink</a>
+                <button id="tevekenyseg-dropdown" class="btn ml-5"><i class="fa-solid fa-chevron-down"></i></button>
+                <div class="dropdown-content text-left" id="dropdown-content-container">
+                    <a href="./index.html?tevekenysegtype=generalkivitelezes#tevekenyseg" data-id="tab-1"
+                        class="text-dark menu-label-responsive tevekenyseg-al">Generálkivitelezés</a>
+                    <a href="./index.html?tevekenysegtype=szerkezetepites#tevekenyseg" data-id="tab-2"
+                        class="text-dark menu-label-responsive tevekenyseg-al">Szerkezet
+                        építés</a>
+                    <a href="./index.html?tevekenysegtype=utepites#tevekenyseg" data-id="tab-3"
+                        class="text-dark menu-label-responsive tevekenyseg-al">Útépítés</a>
+                    <a href="./index.html?tevekenysegtype=iparipadlok#tevekenyseg" data-id="tab-4"
+                        class="text-dark menu-label-responsive tevekenyseg-al">Ipari
+                        padlók</a>
+                </div>
+            </div>
+            <div class="col-12 text-center menu-label-responsive py-3">
+                <a href="./index.html#rolunk" class="text-dark">Rólunk</a>
+            </div>
+            <div class="col-12 text-center menu-label-responsive py-3">
+                <a href="#arak" class="tevekenyseg text-dark mr-5">Áraink</a>
+                <button id="arak-dropdown" class="btn ml-5"><i class="fa-solid fa-chevron-down"></i></button>
+                <div class="dropdown-content text-left" id="dropdown-content-container-arak">
+                    <a href="#arak" data-id="tab-1" class="text-dark menu-label-responsive arak-al">Lakossági árak</a>
+                    <a href="#arak" data-id="tab-2" class="text-dark menu-label-responsive arak-al">Vállalati árak</a>
+
+                </div>
+            </div>
+            <div class="col-12 top-50 text-center menu-label-responsive py-3">
+                <a href="./index.html#kapcsolat" class="text-dark">Kapcsolat</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

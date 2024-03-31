@@ -30,15 +30,6 @@
     <link rel="stylesheet" href="css/img-grid-style.css">
     <link rel="stylesheet" href="css/image-viewer.css">
     <script>
-        var galleryList = [
-            { title: "Aszfaltozás-Bátonyterenye", imagePath: "Aszfaltozas-Batonyterenye", text: "" },
-            { title: "Csarnoképítés-Nyírbátor", imagePath: "Csarnokepites-Nyirbator", text: "" },
-            { title: "Díszburkolás-Nagykovácsi Szent Anna utca", imagePath: "Diszburkolas-Nagykovacsi_Szent_Anna_utca", text: "" },
-            { title: "Felújítás-Budapest VI. kerület", imagePath: "Felujitas-Budapest_VI._kerulet", text: "" },
-            { title: "Generálkivitelezés-Érd", imagePath: "Generalkivitelezes-Erd", text: "" },
-            { title: "Szerkezetépítés-Budapest, Gergely utca", imagePath: "Szerkezetepitws-Budapest_Gergely_utca", text: "" },
-            { title: "Térburkolás-Tatabánya", imagePath: "Terburkolas-Tatabanya", text: "" },
-        ];
         $(document).ready(function () {
             $("#tab-nav-1").prop('checked', true);
             $("#tab-1:first").addClass("checked-tab");
@@ -48,13 +39,49 @@
             tevekenysegUtepites = './images/tevekenyseg/utepites_stock.jpg';
             tevekenysegIparipadlo = './images/tevekenyseg/ipari_padlo_stock.jpg';
 
+            let url = new URL(window.location.href);
+            let search_params = url.searchParams;
+            if (search_params.get('tevekenysegtype')) {
+                let tabIdFromUrl;
+                switch (search_params.get('tevekenysegtype')) {
+                    case 'generalkivitelezes':
+                        tabIdFromUrl = 'tab-1';
+                        break;
+                    case 'szerkezetepites':
+                        tabIdFromUrl = 'tab-2';
+                        break;
+                    case 'utepites':
+                        tabIdFromUrl = 'tab-3';
+                        break;
+                    case 'iparipadlok':
+                        tabIdFromUrl = 'tab-4';
+                        break;
+                    default:
+                        window.location.href = "/"
+                }
+
+                $("[name=tabs]").each(function (i, obj) {
+                    if ($(obj).data("id") === tabIdFromUrl) {
+                        $(obj).prop("checked", true);
+                        $("div").removeClass("checked-tab");
+                        let dataId = $(obj).data("id");
+                        let tab = $(`#${dataId}:first`);
+                        tab.addClass("checked-tab");
+                    }
+                });
+            }
+
+
+
+
             $("#tevekenyseg-img").attr("src", tevekenysegGeneral);
-            
+
 
             let slideIndex = 1;
             var touched = Date.now();
             var showMenu = false;
-            var showdropdown = false;
+            var tevekenysegshowdropdown = false;
+            var arakshowdropdown = false;
             var galleryIndex = 0;
             var imageIndex = 0;
             setInterval(function () {
@@ -141,7 +168,7 @@
             $("#menu-btn, .responsive-menu>div>div>a").click(function () {
                 showResponsiveMenu();
             });
-            function showResponsiveMenu(){
+            function showResponsiveMenu() {
                 if (showMenu) {
                     $(".responsive-menu").css("right", "-150%");
 
@@ -150,9 +177,11 @@
                 }
                 showMenu = !showMenu;
             }
+            //Tevekenyseg dropdown
             $("#tevekenyseg-dropdown").click(function () {
                 tevekenysegDropdown();
             });
+
             $(".tevekenyseg-al").click(function () {
                 let dataId = $(this).data("id");
                 //let input = $("[name=tabs]").find(x => $(x).data("id") == $(this).data("id"))
@@ -168,15 +197,40 @@
                 tevekenysegDropdown();
                 showResponsiveMenu();
             });
-            function tevekenysegDropdown(){
-                if (showdropdown) {
+
+            function tevekenysegDropdown() {
+                if (tevekenysegshowdropdown) {
                     $("#dropdown-content-container").css("display", "none");
                     $("#tevekenyseg-dropdown").css("transform", "rotate(0deg)");
                 } else {
                     $("#dropdown-content-container").css("display", "block");
                     $("#tevekenyseg-dropdown").css("transform", "rotate(180deg)");
                 }
-                showdropdown = !showdropdown;
+                tevekenysegshowdropdown = !tevekenysegshowdropdown;
+                arakshowdropdown = false
+            }
+
+            //Arak dropdown
+            $("#arak-dropdown").click(function () {
+                arakDropdown();
+            });
+            $(".arak-al").click(function () {
+                let dataId = $(this).data("id");
+                let pageType = dataId === 'tab-1' ? 'lakossagi' : 'vallalati';
+                window.location.replace(`/arak.html?id=${pageType}`);
+                arakDropdown();
+                showResponsiveMenu();
+            });
+            function arakDropdown() {
+                if (arakshowdropdown) {
+                    $("#dropdown-content-container-arak").css("display", "none");
+                    $("#arak-dropdown").css("transform", "rotate(0deg)");
+                } else {
+                    $("#dropdown-content-container-arak").css("display", "block");
+                    $("#arak-dropdown").css("transform", "rotate(180deg)");
+                }
+                arakshowdropdown = !arakshowdropdown;
+                tevekenysegshowdropdown = false
             }
         });
     </script>
@@ -189,7 +243,7 @@
             <div class="img-slides emerges">
                 <div class="numbertext">1 / 5</div>
                 <img src="images/fejlec3.jpg" class="bg-images" loading="lazy" alt="">
-                
+
             </div>
 
             <div class="img-slides emerges">
@@ -258,16 +312,16 @@
     <div class="container-fluid">
         <div class="container">
             <div class="row menu header-text">
-                <div class="col-4 d-none d-lg-block">
+                <div class="col-3 d-none d-lg-block">
                     <a href="#"><img src="./images/logo_2017.png" class="logo" alt="Origo Univerzál Kft."></a>
                 </div>
-                <div class="col-8 text-uppercase d-none d-lg-block">
+                <div class="col-9 text-uppercase d-none d-lg-block">
                     <div class="row">
-                        <div class="col-3 top-50 text-center border-right border-secondary menu-label">
+                        <div class="col-2 top-50 text-center border-right border-secondary menu-label">
                             <a href="./gallery.html">Referenciáink</a>
                         </div>
                         <div
-                            class="col-3 top-50 text-center border-right border-secondary tevekenyseg-square menu-label">
+                            class="col-2 top-50 text-center border-right border-secondary tevekenyseg-square menu-label">
                             <a href="#tevekenyseg" class="tevekenyseg">Tevékenységeink</a>
                             <div class="dropdown-content text-left">
                                 <a href="#tevekenyseg" data-id="tab-1"
@@ -280,10 +334,17 @@
                                     padlók</a>
                             </div>
                         </div>
-                        <div class="col-3 top-50 text-center border-right border-secondary menu-label">
+                        <div class="col-2 top-50 text-center border-right border-secondary menu-label">
                             <a href="#rolunk">Rólunk</a>
                         </div>
-                        <div class="col-3 top-50 text-center menu-label">
+                        <div class="col-2 top-50 text-center border-right border-secondary arak-square menu-label">
+                            <a href="#arak" class="arak">Áraink</a>
+                            <div class="dropdown-content text-left">
+                                <a href="#arak" data-id="tab-1" class="text-dark menu-label arak-al">Lakossági árak</a>
+                                <a href="#arak" data-id="tab-2" class="text-dark menu-label arak-al">Vállalati árak</a>
+                            </div>
+                        </div>
+                        <div class="col-2 top-50 text-center menu-label">
                             <a href="#kapcsolat">Kapcsolat</a>
                         </div>
                     </div>
@@ -294,19 +355,20 @@
     <div class="container-fluid menu-container">
         <div class="container">
             <div class="row menu">
-                <div class="col-4">
+                <div class="col-3">
                     <a href="#"><img src="./images/logo_2017.png" class="logo" loading="lazy"
                             alt="Origo Univerzál Kft."></a>
                 </div>
-                <div class="col-8 text-uppercase d-none d-lg-block">
+                <div class="col-9 text-uppercase d-none d-lg-block">
                     <div class="row">
-                        <div class="col-3 text-center border-right border-secondary menu-label">
+                        <div class="col-2 text-center border-right border-secondary menu-label">
                             <a href="./gallery.html" class="text-dark">Referenciáink</a>
                         </div>
-                        <div class="col-3 text-center border-right border-secondary tevekenyseg-square menu-label">
+                        <div class="col-2 text-center border-right border-secondary tevekenyseg-square menu-label">
                             <a href="#tevekenyseg" class="text-dark tevekenyseg">Tevékenységeink</a>
                             <div class="dropdown-content text-left">
-                                <a href="#tevekenyseg" data-id="tab-1" class="text-dark tevekenyseg-al">Generálkivitelezés</a>
+                                <a href="#tevekenyseg" data-id="tab-1"
+                                    class="text-dark tevekenyseg-al">Generálkivitelezés</a>
                                 <a href="#tevekenyseg" data-id="tab-2" class="text-dark tevekenyseg-al">Szerkezet
                                     építés</a>
                                 <a href="#tevekenyseg" data-id="tab-3" class="text-dark tevekenyseg-al">Útépítés</a>
@@ -314,10 +376,17 @@
                                     padlók</a>
                             </div>
                         </div>
-                        <div class="col-3 text-center border-right border-secondary menu-label">
+                        <div class="col-2 text-center border-right border-secondary menu-label">
                             <a href="#rolunk" class="text-dark">Rólunk</a>
                         </div>
-                        <div class="col-3 text-center menu-label">
+                        <div class="col-2 text-center border-right border-secondary arak-square menu-label">
+                            <a href="#arak" class="text-dark arak">Árak</a>
+                            <div class="dropdown-content text-left">
+                                <a href="#arak" data-id="tab-1" class="text-dark arak-al">Lakossági árak</a>
+                                <a href="#arak" data-id="tab-2" class="text-dark arak-al">Vállalati árak</a>
+                            </div>
+                        </div>
+                        <div class="col-2 text-center menu-label">
                             <a href="#kapcsolat" class="text-dark">Kapcsolat</a>
                         </div>
                     </div>
@@ -524,16 +593,16 @@
                 </div>
 
                 <div class="col-12 col-md-3 mt-md-0 mt-4 d-flex justify-content-center">
-                    <a target="_blank" href="http://www.garden-kerteszet.hu/"><img src="./images/partnerek/garden.png" width="150"
-                            alt="Garden Kft."></a>
+                    <a target="_blank" href="http://www.garden-kerteszet.hu/"><img src="./images/partnerek/garden.png"
+                            width="150" alt="Garden Kft."></a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a target="_blank" href="http://szemcseszoras.com/kapcsolat/"><img src="./images/partnerek/koncz.png" width="150"
-                            alt="Koncz és társa Bt."></a>
+                    <a target="_blank" href="http://szemcseszoras.com/kapcsolat/"><img
+                            src="./images/partnerek/koncz.png" width="150" alt="Koncz és társa Bt."></a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a target="_blank" href="http://www.12raszter.hu/hu"><img src="./images/partnerek/raszter.png" width="120"
-                            alt="12 Raszter Kft."></a>
+                    <a target="_blank" href="http://www.12raszter.hu/hu"><img src="./images/partnerek/raszter.png"
+                            width="120" alt="12 Raszter Kft."></a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
                     <a target="_blank" href="http://www.rosenberger.com/br_en/company/rosenberger_hungary.php"><img
@@ -544,12 +613,12 @@
                     <img src="./images/partnerek/sungEel.png" width="150" alt="SungEel Hitech Hungary Kft.">
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a target="_blank" href="http://www.betonkorr.hu/"><img src="./images/partnerek/betonkorr.webp" width="150"
-                            alt="Betonkorr Kft."></a>
+                    <a target="_blank" href="http://www.betonkorr.hu/"><img src="./images/partnerek/betonkorr.webp"
+                            width="150" alt="Betonkorr Kft."></a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <a target="_blank" href="http://www.marosepker.hu/hu"><img src="./images/partnerek/maros.png" width="150"
-                            alt="Maros-Épker Kft."></a>
+                    <a target="_blank" href="http://www.marosepker.hu/hu"><img src="./images/partnerek/maros.png"
+                            width="150" alt="Maros-Épker Kft."></a>
                 </div>
             </div>
         </div>
@@ -643,24 +712,37 @@
     </div>
     <div class="responsive-menu">
         <div class="row">
-            <div class="col-12 text-center menu-label py-3">
+            <div class="col-12 text-center menu-label-responsive py-3">
                 <a href="./gallery.html" class="text-dark ">Referenciáink</a>
             </div>
-            <div class="col-12 text-center menu-label py-3">
+            <div class="col-12 text-center menu-label-responsive py-3">
                 <a href="#tevekenyseg" class="tevekenyseg text-dark mr-5">Tevékenységeink</a>
                 <button id="tevekenyseg-dropdown" class="btn ml-5"><i class="fa-solid fa-chevron-down"></i></button>
                 <div class="dropdown-content text-left" id="dropdown-content-container">
-                    <a href="#tevekenyseg" data-id="tab-1" class="text-dark menu-label tevekenyseg-al">Generálkivitelezés</a>
-                    <a href="#tevekenyseg" data-id="tab-2" class="text-dark menu-label tevekenyseg-al">Szerkezet
+                    <a href="#tevekenyseg" data-id="tab-1"
+                        class="text-dark menu-label-responsive tevekenyseg-al">Generálkivitelezés</a>
+                    <a href="#tevekenyseg" data-id="tab-2"
+                        class="text-dark menu-label-responsive tevekenyseg-al">Szerkezet
                         építés</a>
-                    <a href="#tevekenyseg" data-id="tab-3" class="text-dark menu-label tevekenyseg-al">Útépítés</a>
-                    <a href="#tevekenyseg" data-id="tab-4" class="text-dark menu-label tevekenyseg-al">Ipari padlók</a>
+                    <a href="#tevekenyseg" data-id="tab-3"
+                        class="text-dark menu-label-responsive tevekenyseg-al">Útépítés</a>
+                    <a href="#tevekenyseg" data-id="tab-4" class="text-dark menu-label-responsive tevekenyseg-al">Ipari
+                        padlók</a>
                 </div>
             </div>
-            <div class="col-12 text-center menu-label py-3">
+            <div class="col-12 text-center menu-label-responsive py-3">
                 <a href="#rolunk" class="text-dark">Rólunk</a>
             </div>
-            <div class="col-12 top-50 text-center menu-label py-3">
+            <div class="col-12 text-center menu-label-responsive py-3">
+                <a href="#arak" class="tevekenyseg text-dark mr-5">Áraink</a>
+                <button id="arak-dropdown" class="btn ml-5"><i class="fa-solid fa-chevron-down"></i></button>
+                <div class="dropdown-content text-left" id="dropdown-content-container-arak">
+                    <a href="#arak" data-id="tab-1" class="text-dark menu-label-responsive arak-al">Lakossági árak</a>
+                    <a href="#arak" data-id="tab-2" class="text-dark menu-label-responsive arak-al">Vállalati árak</a>
+
+                </div>
+            </div>
+            <div class="col-12 top-50 text-center menu-label-responsive py-3">
                 <a href="#kapcsolat" class="text-dark">Kapcsolat</a>
             </div>
         </div>
@@ -668,4 +750,5 @@
     </div>
 </body>
 <!--Készítette: Szabó Máté (szabo.mate960722@gmail.com)-->
+
 </html>

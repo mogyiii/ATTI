@@ -46,6 +46,7 @@
             var touched = Date.now();
             var showMenu = false;
             var showdropdown = false;
+            var arakshowdropdown = false;
             var galleryIndex = 0;
             var imageIndex = 0;
 
@@ -135,7 +136,30 @@
                     $("#tevekenyseg-dropdown").css("transform", "rotate(180deg)");
                 }
                 showdropdown = !showdropdown;
+                arakshowdropdown = false
             });
+            //Arak dropdown
+            $("#arak-dropdown").click(function () {
+                arakDropdown();
+            });
+            $(".arak-al").click(function () {
+                let dataId = $(this).data("id");
+                let pageType = dataId === 'tab-1' ? 'lakossagi' : 'vallalati';
+                window.location.replace(`/arak.html?id=${pageType}`);
+                arakDropdown();
+                showResponsiveMenu();
+            });
+            function arakDropdown() {
+                if (arakshowdropdown) {
+                    $("#dropdown-content-container-arak").css("display", "none");
+                    $("#arak-dropdown").css("transform", "rotate(0deg)");
+                } else {
+                    $("#dropdown-content-container-arak").css("display", "block");
+                    $("#arak-dropdown").css("transform", "rotate(180deg)");
+                }
+                arakshowdropdown = !arakshowdropdown;
+                showdropdown = false
+            }
 
             $("#next-gallery").click(function () {
                 nextGallery();
@@ -162,7 +186,7 @@
                 if (e.keyCode == 37) {
                     backImage();
                 }
-                if(e.key === "Escape"){
+                if (e.key === "Escape") {
                     $('#image-viewer').hide();
                 }
             });
@@ -215,36 +239,43 @@
     <div class="container-fluid">
         <div class="container">
             <div class="row menu header-text">
-                <div class="col-4 d-none d-lg-block">
+                <div class="col-3 d-none d-lg-block">
                     <a href="./index.html"><img src="./images/logo_2017.png" class="logo"
                             alt="Origo Univerzál Kft."></a>
                 </div>
-                <div class="col-8 text-uppercase d-none d-lg-block">
+                <div class="col-9 text-uppercase d-none d-lg-block">
                     <div class="row">
                         <div class="col-3 top-50 text-center border-right border-secondary menu-label">
                             <a href="./gallery.html" style="color:black !important">Referenciáink</a>
                         </div>
                         <div
-                            class="col-3 top-50 text-center border-right border-secondary tevekenyseg-square menu-label">
+                            class="col-2 top-50 text-center border-right border-secondary tevekenyseg-square menu-label">
                             <a href="./index.html#tevekenyseg" class="tevekenyseg"
                                 style="color:black !important">Tevékenységeink</a>
                             <div class="dropdown-content text-left">
-                                <a href="#tevekenyseg" data-id="tab-1" class="text-dark menu-label tevekenyseg-al"
+                                <a href="./index.html?tevekenysegtype=generalkivitelezes#tevekenyseg" data-id="tab-1" class="text-dark menu-label tevekenyseg-al"
                                     style="color:black !important">Generálkivitelezés</a>
-                                <a href="./index.html#tevekenyseg" data-id="tab-2"
+                                <a href="./index.html?tevekenysegtype=szerkezetepites#tevekenyseg" data-id="tab-2"
                                     class="text-dark menu-label tevekenyseg-al" style="color:black !important">Szerkezet
                                     építés</a>
-                                <a href="./index.html#tevekenyseg" data-id="tab-3"
+                                <a href="./index.html?tevekenysegtype=utepites#tevekenyseg" data-id="tab-3"
                                     class="text-dark menu-label tevekenyseg-al">Útépítés</a>
-                                <a href="./index.html#tevekenyseg" data-id="tab-4"
+                                <a href="./index.html?tevekenysegtype=iparipadlok#tevekenyseg" data-id="tab-4"
                                     class="text-dark menu-label tevekenyseg-al" style="color:black !important">Ipari
                                     padlók</a>
                             </div>
                         </div>
-                        <div class="col-3 top-50 text-center border-right border-secondary menu-label">
+                        <div class="col-2 top-50 text-center border-right border-secondary menu-label">
                             <a href="./index.html#rolunk" style="color:black !important">Rólunk</a>
                         </div>
-                        <div class="col-3 top-50 text-center menu-label">
+                        <div class="col-2 top-50 text-center border-right border-secondary arak-square menu-label">
+                            <a href="#arak" class="arak" style="color:black !important">Áraink</a>
+                            <div class="dropdown-content text-left">
+                                <a href="#arak" data-id="tab-1" class="text-dark menu-label arak-al">Lakossági árak</a>
+                                <a href="#arak" data-id="tab-2" class="text-dark menu-label arak-al">Vállalati árak</a>
+                            </div>
+                        </div>
+                        <div class="col-2 top-50 text-center menu-label">
                             <a href="./index.html#kapcsolat" style="color:black !important">Kapcsolat</a>
                         </div>
                     </div>
@@ -255,34 +286,41 @@
     <div class="container-fluid menu-container">
         <div class="container">
             <div class="row menu">
-                <div class="col-4">
+                <div class="col-3">
                     <a href="./index.html"><img src="./images/logo_2017.png" class="logo" loading="lazy"
                             alt="Origo Univerzál Kft."></a>
                 </div>
-                <div class="col-8 text-uppercase d-none d-lg-block">
+                <div class="col-9 text-uppercase d-none d-lg-block">
                     <div class="row">
-                        <div class="col-3 text-center border-right border-secondary menu-label">
+                        <div class="col-2 text-center border-right border-secondary menu-label">
                             <a href="./gallery.html" class="text-dark">Referenciáink</a>
                         </div>
-                        <div class="col-3 text-center border-right border-secondary tevekenyseg-square menu-label">
+                        <div class="col-2 text-center border-right border-secondary tevekenyseg-square menu-label">
                             <a href="./index.html#tevekenyseg" class="text-dark tevekenyseg">Tevékenységeink</a>
                             <div class="dropdown-content text-left">
-                                <a href="./index.html#tevekenyseg" data-id="tab-1"
+                                <a href="./index.html?tevekenysegtype=generalkivitelezes#tevekenyseg" data-id="tab-1"
                                     class="text-dark tevekenyseg-al">Generálkivitelezés</a>
-                                <a href="./index.html#tevekenyseg" data-id="tab-2"
+                                <a href="./index.html?tevekenysegtype=szerkezetepites#tevekenyseg" data-id="tab-2"
                                     class="text-dark tevekenyseg-al">Szerkezet
                                     építés</a>
-                                <a href="./index.html#tevekenyseg" data-id="tab-3"
+                                <a href="./index.html?tevekenysegtype=utepites#tevekenyseg" data-id="tab-3"
                                     class="text-dark tevekenyseg-al">Útépítés</a>
-                                <a href="./index.html#tevekenyseg" data-id="tab-4"
+                                <a href="./index.html?tevekenysegtype=iparipadlok#tevekenyseg" data-id="tab-4"
                                     class="text-dark tevekenyseg-al">Ipari
                                     padlók</a>
                             </div>
                         </div>
-                        <div class="col-3 text-center border-right border-secondary menu-label">
+                        <div class="col-2 text-center border-right border-secondary menu-label">
                             <a href="./index.html#rolunk" class="text-dark">Rólunk</a>
                         </div>
-                        <div class="col-3 text-center menu-label">
+                        <div class="col-2 text-center border-right border-secondary arak-square menu-label">
+                            <a href="#arak" class="text-dark arak">Árak</a>
+                            <div class="dropdown-content text-left">
+                                <a href="#arak" data-id="tab-1" class="text-dark arak-al">Lakossági árak</a>
+                                <a href="#arak" data-id="tab-2" class="text-dark arak-al">Vállalati árak</a>
+                            </div>
+                        </div>
+                        <div class="col-2 text-center menu-label">
                             <a href="./index.html#kapcsolat" class="text-dark">Kapcsolat</a>
                         </div>
                     </div>
@@ -383,33 +421,40 @@
     </div>
     <div class="responsive-menu">
         <div class="row">
-            <div class="col-12 text-center menu-label py-3">
+            <div class="col-12 text-center menu-label-responsive py-3">
                 <a href="./gallery.html" class="text-dark ">Referenciáink</a>
             </div>
-            <div class="col-12 text-center menu-label py-3">
+            <div class="col-12 text-center menu-label-responsive py-3">
                 <a href="./index.html#tevekenyseg" class="tevekenyseg text-dark mr-5">Tevékenységeink</a>
                 <button id="tevekenyseg-dropdown" class="btn ml-5"><i class="fa-solid fa-chevron-down"></i></button>
                 <div class="dropdown-content text-left" id="dropdown-content-container">
-                    <a href="./index.html#tevekenyseg" data-id="tab-1"
-                        class="text-dark menu-label tevekenyseg-al">Generálkivitelezés</a>
-                    <a href="./index.html#tevekenyseg" data-id="tab-2"
-                        class="text-dark menu-label tevekenyseg-al">Szerkezet
+                    <a href="./index.html?tevekenysegtype=generalkivitelezes#tevekenyseg" data-id="tab-1"
+                        class="text-dark menu-label-responsive tevekenyseg-al">Generálkivitelezés</a>
+                    <a href="./index.html?tevekenysegtype=szerkezetepites#tevekenyseg" data-id="tab-2"
+                        class="text-dark menu-label-responsive tevekenyseg-al">Szerkezet
                         építés</a>
-                    <a href="./index.html#tevekenyseg" data-id="tab-3"
-                        class="text-dark menu-label tevekenyseg-al">Útépítés</a>
-                    <a href="./index.html#tevekenyseg" data-id="tab-4" class="text-dark menu-label tevekenyseg-al">Ipari
+                    <a href="./index.html?tevekenysegtype=utepites#tevekenyseg" data-id="tab-3"
+                        class="text-dark menu-label-responsive tevekenyseg-al">Útépítés</a>
+                    <a href="./index.html?tevekenysegtype=iparipadlok#tevekenyseg" data-id="tab-4" class="text-dark menu-label-responsive tevekenyseg-al">Ipari
                         padlók</a>
                 </div>
             </div>
-            <div class="col-12 text-center menu-label py-3">
+            <div class="col-12 text-center menu-label-responsive py-3">
                 <a href="./index.html#rolunk" class="text-dark">Rólunk</a>
             </div>
-            <div class="col-12 top-50 text-center menu-label py-3">
+            <div class="col-12 text-center menu-label-responsive py-3">
+                <a href="#arak" class="tevekenyseg text-dark mr-5">Áraink</a>
+                <button id="arak-dropdown" class="btn ml-5"><i class="fa-solid fa-chevron-down"></i></button>
+                <div class="dropdown-content text-left" id="dropdown-content-container-arak">
+                    <a href="#arak" data-id="tab-1" class="text-dark menu-label-responsive arak-al">Lakossági árak</a>
+                    <a href="#arak" data-id="tab-2" class="text-dark menu-label-responsive arak-al">Vállalati árak</a>
+
+                </div>
+            </div>
+            <div class="col-12 top-50 text-center menu-label-responsive py-3">
                 <a href="./index.html#kapcsolat" class="text-dark">Kapcsolat</a>
             </div>
         </div>
-
     </div>
 </body>
-
 </html>
