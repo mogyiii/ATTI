@@ -176,7 +176,7 @@
         .card {
             padding: 2px;
             height: 100%;
-            border: 4px solid transparent;
+            border: 2px solid transparent;
             border-radius: 16px;
             background: white;
             background-clip: padding-box;
@@ -192,10 +192,14 @@
             bottom: -4px;
             left: -4px;
             right: -4px;
-            background: linear-gradient(#7fc759, rgb(65, 65, 65));
+            background: linear-gradient(#010101, rgb(0, 0, 0));
             content: '';
             z-index: -1;
             border-radius: 16px;
+        }
+
+        .ar-rows {
+            margin-bottom: -20px;
         }
 
         @keyframes rotateIn {
@@ -328,7 +332,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mt-2">
+            <div class="col-12 col-md-12 mt-2">
                 <div class="card-container">
                     <div class="card">
                         <span class="text-center">
@@ -337,39 +341,91 @@
                         </span>
                         <hr>
                         <span>
-                            <p><i>Családi ház tervezés nettó 8.500.- Ft. + ÁFA/ nettó m<sup>2</sup>
-                                    -től</i><br><small>Koncepcionális
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Családi ház tervezés</i>
+                                </p>
+                                <p>
+                                    <b>
+                                        8.500.- Ft. + ÁFA/ nettó m<sup>2</sup>
+                                        -től
+                                    </b>
+                                </p>
+                            </div>
+                            <p class="text-center">
+                                <small>Koncepcionális
                                     tervezés,
                                     komplett egyszerű bejelentési dokumentáció építészeti és nem építészeti
                                     elemei</small>
                             </p>
                         </span>
                         <span>
-                            <p><i>Kulcsrakész kivitelezés nettó 639.000.- Ft. + ÁFA/ nettó m<sup>2</sup>
-                                    -től</i><br><small>Magas minőségű
-                                    anyagok
-                                    felhasználásával, hőszivattyúval, padlófűtéssel</small></p>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Kulcsrakész kivitelezés</i>
+                                </p>
+                                <p>
+                                    <b>
+                                        639.000.- Ft. + ÁFA/ nettó m<sup>2</sup>
+                                        -től
+                                    </b>
+                                </p>
+                            </div>
+                            <p class="text-center">
+                                <small>
+                                    Magas minőségű anyagok felhasználásával, hőszivattyúval, padlófűtéssel
+                                </small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Szerkezetkész kivitelezés nettó 380.000.- Ft. + ÁFA / nettó
-                                    m<sup>2</sup>-től</i><br><small>Beépített
-                                    nyílászárókkal, tetőfedéssel, bádogos munkákkal</small></p>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Szerkezetkész kivitelezés</i>
+                                </p>
+                                <p>
+                                    <b>380.000.- Ft. + ÁFA / nettó
+                                        m<sup>2</sup>-től</b>
+                                </p>
+                            </div>
+                            <p class="text-center">
+                                <small>Beépített
+                                    nyílászárókkal, tetőfedéssel, bádogos munkákkal</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Alapozási munkák könnyűszerkezetes házakhoz nettó 39.000.- FT + ÁFA / bruttó
-                                    m<sup>2</sup>-től</i><br><small>Geodéziai kitűzéssel, kitermelt föld
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p><i>Alapozási munkák könnyűszerkezetes házakhoz</i>
+                                </p>
+                                <p>
+                                    <b>39.000.- FT + ÁFA / bruttó
+                                        m<sup>2</sup>-től</b>
+                                </p>
+                            </div>
+                            <p class="text-center">
+                                <small>Geodéziai kitűzéssel, kitermelt föld
                                     elszállításával, betonozási és
-                                    betonacélszerelési munkákkal</small></p>
+                                    betonacélszerelési munkákkal</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Épületbontási munkák nettó 10.500.- FT + ÁFA / lég
-                                    m<sup>3</sup>-től</i><br><small>Tartalmazza az épület
-                                    bontását, hulladék elszállítását, épület kontúrján belül tereprendezést</small></p>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Épületbontási munkák</i>
+                                </p>
+                                <p> <b>10.500.- FT + ÁFA / lég
+                                        m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Tartalmazza az épület
+                                    bontását, hulladék elszállítását, épület kontúrján belül tereprendezést</small>
+                            </p>
                         </span>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mt-2">
+            <div class="col-12 col-md-12 mt-2">
                 <div class="card-container">
                     <div class="card">
                         <span class="text-center">
@@ -379,56 +435,153 @@
                         </span>
                         <hr>
                         <span>
-                            <p><i>Főfalak falazása nettó 8.500.- Ft. + ÁFA / m<sup>2</sup>-től</i><br><small>25-44cm
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Főfalak falazása</i>
+                                </p>
+                                <p>
+                                    <b>8.500.- Ft. + ÁFA / nettó / m<sup>2</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>25-44cm
                                     névleges vastagságban
-                                    vázkerámia vagy pórusbeton falazóelemekből</small></p>
+                                    vázkerámia vagy pórusbeton falazóelemekből</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Válaszfalak falazása nettó 7.500.- Ft. + ÁFA / m<sup>2</sup>-től</i><br><small>5-15cm
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Válaszfalak falazása</i>
+                                </p>
+                                <p>
+                                    <b>7.500 Ft. + ÁFA / nettó / m<sup>2</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>5-15cm
                                     névleges vastagságban
-                                    vázkerámia vagy pórusbeton falazóelemekből</small></p>
+                                    vázkerámia vagy pórusbeton falazóelemekből</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Áthidalók beépítése nettó 4.500.- Ft. + ÁFA / db-tól</i><br><small>Hagyományos és
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Áthidalók beépítése</i>
+                                </p>
+                                <p>
+                                    <b> 4.500.- Ft. + ÁFA / nettó / db-tól</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Hagyományos és
                                     elemmagas
-                                    áthidalókból</small></p>
+                                    áthidalókból</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Betonacél szerelés nettó 180.- Ft + ÁFA / kg-tól</i><br><small>Szálas vagy hálós
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Betonacél szerelés</i>
+                                </p>
+                                <p>
+                                    <b>180.- Ft + ÁFA / nettó / kg-tól</b>
+                                </p>
+                            </div>
+                            <p class="text-center">
+                                <small>Szálas vagy hálós
                                     kiviteleben</small>
                             </p>
                         </span>
                         <span>
-                            <p><i>Betonozási munkák nettó 16.000.- Ft. + ÁFA /
-                                    m<sup>3</sup>-től</i><br><small>Transzportbeton vagy helyszínen
-                                    kevert kivitelben</small></p>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Betonozási munkák</i>
+                                </p>
+                                <p>
+                                    <b>16.000.- Ft. + ÁFA / nettó /
+                                        m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Transzportbeton vagy helyszínen
+                                    kevert kivitelben</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Homlokzat szigetelési munkák nettó 11.500.- Ft. + ÁFA
-                                    /m<sup>2</sup>-től</i><br><small>Állványozás nélkül,
-                                    alapozással, dübelezéssel, vékonyvakolattal, élvédőkkel, nemesvakolással</small></p>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Homlokzat szigetelési munkák</i>
+                                </p>
+                                <p>
+                                    <b>11.500.- Ft. + ÁFA / nettó
+                                        /m<sup>2</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Állványozás nélkül,
+                                    alapozással, dübelezéssel, vékonyvakolattal, élvédőkkel, nemesvakolással</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Állványozási munkák nettó 7000.- Ft. + ÁFA / m<sup>2</sup> / 30
-                                    naptól</i><br><small>Szállítással,
-                                    összeszereléssel, bontással, takarítással</small></p>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Állványozási munkák</i>
+                                </p>
+                                <p>
+                                    <b>7000.- Ft. + ÁFA / nettó / m<sup>2</sup> / 30
+                                        naptól</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Szállítással,
+                                    összeszereléssel, bontással, takarítással</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Födémzsaluzási munkák nettó 11.000.- Ft. + ÁFA /
-                                    m<sup>2</sup>-től</i><br><small>Zsaluanyaggal,
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Födémzsaluzási munkák</i>
+                                </p>
+                                <p>
+                                    <b>11.000.- Ft. + ÁFA / nettó /
+                                        m<sup>2</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Zsaluanyaggal,
                                     szállítással,
-                                    építéssel, bontással.</small></p>
+                                    építéssel, bontással.</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Zsalukő fal készítése nettó 9.125.- Ft. + ÁFA /
-                                    m<sup>2</sup>-től</i><br><small>Betonacélszereléssel,
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Zsalukő fal készítése</i>
+                                </p>
+                                <p>
+                                    <b>9.125.- Ft. + ÁFA / nettó /
+                                        m<sup>2</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Betonacélszereléssel,
                                     kitöltő
-                                    betonozással, fejeléssel</small></p>
+                                    betonozással, fejeléssel</small>
+                            </p>
                         </span>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mt-2">
+            <div class="col-12 col-md-12 mt-2">
                 <div class="card-container">
                     <div class="card">
                         <span class="text-center">
@@ -438,40 +591,126 @@
                         </span>
                         <hr>
                         <span>
-                            <p><i>Földkiemelés nettó 8.000.- Ft. + ÁFA / m<sup>3</sup>-től</i><br><small>Helyszínen
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Földkiemelés</i>
+                                </p>
+                                <p>
+                                    <b>8.000.- Ft. + ÁFA / nettó / m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Helyszínen
                                     deponálva, elszállítás
-                                    nélkül</small></p>
-                        </span>
-                        <span>
-                            <p><i>Földelszállítás nettó 10.250.- Ft. + ÁFA / m<sup>3</sup>-től</i><br><small>Rakodással,
-                                    szállítással,
-                                    lerakóhelyi
-                                    díjjal</small></p>
-                        </span>
-                        <span>
-                            <p><i>Zúzottkő útalap nettó 7.500.- Ft. + ÁFA /
-                                    m<sup>3</sup>-től</i><br><small>Tömörítéssel</small></p>
-                        </span>
-                        <span>
-                            <p><i>Soványbeton útalap készítése nettó 9.500.- Ft. + ÁFA /
-                                    m<sup>3</sup>-től</i><br><small>Tömörítéssel,
-                                    utókezeléssel</small></p>
-                        </span>
-                        <span>
-                            <p><i>Kertiszegély építése nettó 3.000.- Ft. + ÁFA /
-                                    m-től</i><br><small>Utókezeléssel</small></p>
-                        </span>
-                        <span>
-                            <p><i>Útszegély építése nettó 5.500.- Ft. + ÁFA / m-től</i><br><small>Utókezeléssel</small>
+                                    nélkül</small>
                             </p>
                         </span>
                         <span>
-                            <p><i>Térburkolás nettó 4.500.- Ft. + ÁFA / m<sup>2</sup>-től</i><br><small>Ágyazóréteg
-                                    készítéssel, tömörítéssel,
-                                    besöpréssel</small></p>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Földelszállítás</i>
+                                </p>
+                                <p>
+                                    <b>10.250.- Ft. + ÁFA / nettó / m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Rakodással,
+                                    szállítással,
+                                    lerakóhelyi
+                                    díjjal</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Blokklépcső építése nettó 12.500.- Ft. + ÁFA / db-tól</i><br><small>Soványbetonba
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Zúzottkő útalap</i>
+                                </p>
+                                <p>
+                                    <b>7.500.- Ft. + ÁFA / nettó /
+                                        m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Tömörítéssel</small>
+                            </p>
+                        </span>
+                        <span>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Soványbeton útalap készítése</i>
+                                </p>
+                                <p>
+                                    <b>9.500.- Ft. + ÁFA / nettó /
+                                        m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Tömörítéssel,
+                                    utókezeléssel</small>
+                            </p>
+                        </span>
+                        <span>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Kertiszegély építése</i>
+                                </p>
+                                <p>
+                                    <b>3.000.- Ft. + ÁFA / nettó /
+                                        m-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Utókezeléssel</small>
+                            </p>
+                        </span>
+                        <span>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Útszegély építése</i>
+                                </p>
+                                <p>
+                                    <b>5.500.- Ft. + ÁFA / nettó / m-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Utókezeléssel</small>
+                            </p>
+                        </span>
+                        <span>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Térburkolás</i>
+                                </p>
+                                <p>
+                                    <b>4.500.- Ft. + ÁFA / nettó / m<sup>2</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Ágyazóréteg
+                                    készítéssel, tömörítéssel,
+                                    besöpréssel</small>
+                            </p>
+                        </span>
+                        <span>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Blokklépcső építése</i>
+                                </p>
+                                <p>
+                                    <b>12.500.- Ft. + ÁFA / nettó / db-tól</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Soványbetonba
                                     ültetve</small>
                             </p>
                         </span>
@@ -488,7 +727,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mt-2">
+            <div class="col-12 col-md-12 mt-2">
                 <div class="card-container">
                     <div class="card">
                         <span class="text-center">
@@ -498,55 +737,152 @@
                         </span>
                         <hr>
                         <span>
-                            <p><i>Földkiemelés nettó 2.200.- Ft. + ÁFA / m<sup>3</sup>-től</i><br><small>Helyszínen
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Földkiemelés</i>
+                                </p>
+                                <p>
+                                    <b>2.200.- Ft. + ÁFA / nettó / m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+                            <p class="text-center">
+                                <small>Helyszínen
                                     deponálva, elszállítás
-                                    nélkül</small></p>
-                        </span>
-                        <span>
-                            <p><i>Földelszállítás nettó 6.000.- Ft. + ÁFA / m<sup>3</sup>-től</i><br><small>Rakodással,
-                                    szállítással,
-                                    lerakóhelyi
-                                    díjjal</small></p>
-                        </span>
-                        <span>
-                            <p><i>Zúzottkő útalap nettó 4.000.- Ft. + ÁFA /
-                                    m<sup>3</sup>-től</i><br><small>Tömörítéssel, tömörség és
-                                    teherbírás
-                                    méréssel.</small></p>
-                        </span>
-                        <span>
-                            <p><i>Soványbeton útalap készítése nettó 5.500.- Ft. + ÁFA /
-                                    m<sup>3</sup>-től</i><br><small>Tömörítéssel,
-                                    utókezeléssel</small></p>
-                        </span>
-                        <span>
-                            <p><i>Kertiszegély építése nettó 2.000.- Ft. + ÁFA /
-                                    m-től</i><br><small>Utókezeléssel</small></p>
-                        </span>
-                        <span>
-                            <p><i>Útszegély építése nettó 3.500.- Ft. + ÁFA / m-től</i><br><small>Utókezeléssel</small>
+                                    nélkül</small>
                             </p>
                         </span>
                         <span>
-                            <p><i>Térburkolás nettó 2.900.- Ft. + ÁFA / m<sup>2</sup>-től</i><br><small>Ágyazóréteg
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Földelszállítás</i>
+                                </p>
+                                <p>
+                                    <b>6.000.- Ft. + ÁFA / nettó / m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Rakodással,
+                                    szállítással,
+                                    lerakóhelyi
+                                    díjjal</small>
+                            </p>
+                        </span>
+                        <span>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Zúzottkő útalap</i>
+                                </p>
+                                <p>
+                                    <b>4.000.- Ft. + ÁFA / nettó /
+                                        m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Tömörítéssel, tömörség és
+                                    teherbírás
+                                    méréssel.</small>
+                            </p>
+                        </span>
+                        <span>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Soványbeton útalap készítése</i>
+                                </p>
+                                <p>
+                                    <b>5.500.- Ft. + ÁFA / nettó /
+                                        m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Tömörítéssel,
+                                    utókezeléssel</small>
+                            </p>
+                        </span>
+                        <span>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Kertiszegély építése</i>
+                                </p>
+                                <p>
+                                    <b>2.000.- Ft. + ÁFA / nettó /
+                                        m-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Utókezeléssel</small>
+                            </p>
+                        </span>
+                        <span>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Útszegély építése</i>
+                                </p>
+                                <p>
+                                    <b>3.500.- Ft. + ÁFA / nettó / m-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Utókezeléssel</small>
+                            </p>
+                        </span>
+                        <span>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Térburkolás</i>
+                                </p>
+                                <p>
+                                    <b>2.900.- Ft. + ÁFA / nettó / m<sup>2</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Ágyazóréteg
                                     készítéssel, tömörítéssel,
-                                    besöpréssel</small></p>
+                                    besöpréssel</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Hengerelt aszfaltozás nettó 145.000.- Ft. + ÁFA /
-                                    m<sup>3</sup>-től</i><br><small>Aszfaltterítő géppel való
-                                    bedolgozás anyagostól</small></p>
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Hengerelt aszfaltozás</i>
+                                </p>
+                                <p>
+                                    <b>145.000.- Ft. + ÁFA / nettó /
+                                        m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Aszfaltterítő géppel való
+                                    bedolgozás anyagostól</small>
+                            </p>
                         </span>
                         <span>
-                            <p><i>Aszfaltmarás nettó 147.000.- Ft. + ÁFA / m<sup>3</sup>-től</i><br><small>Aszfaltterítő
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Aszfaltmarás</i>
+                                </p>
+                                <p>
+                                    <b>147.000.- Ft. + ÁFA / nettó / m<sup>3</sup>-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Aszfaltterítő
                                     géppel való
                                     bedolgozás
-                                    bitumenemulzió terítéssel. Az ár az anyagot tartalmazza!</small></p>
+                                    bitumenemulzió terítéssel. Az ár az anyagot tartalmazza!</small>
+                            </p>
                         </span>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mt-2">
+            <div class="col-12 col-md-12 mt-2">
                 <div class="card-container">
                     <div class="card">
                         <span class="text-center">
@@ -557,45 +893,131 @@
                         </span>
                         <hr>
                         <span>
-                            <p><i>Földkiemelés nettó 2.200.- Ft. + ÁFA / m3-től</i><br><small>Helyszínen deponálva,
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Földkiemelés</i>
+                                </p>
+                                <p>
+                                    <b>2.200.- Ft. + ÁFA / nettó / m3-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Helyszínen deponálva,
                                     elszállítás
-                                    nélkül</small></p>
+                                    nélkül</small>
+                                </p>
                         </span>
                         <span>
-                            <p><i>Földelszállítás nettó 6.000.- Ft. + ÁFA / m3-től</i><br><small>Rakodással,
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Földelszállítás</i>
+                                </p>
+                                <p>
+                                    <b>6.000.- Ft. + ÁFA / nettó / m3-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Rakodással,
                                     szállítással,
                                     lerakóhelyi
-                                    díjjal</small></p>
+                                    díjjal</small>
+                                </p>
                         </span>
                         <span>
-                            <p><i>Zúzottkő útalap nettó 4.000.- Ft. + ÁFA / m3-től</i><br><small>Tömörítéssel, tömörség
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Zúzottkő útalap</i>
+                                </p>
+                                <p>
+                                    <b>4.000.- Ft. + ÁFA / nettó / m3-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Tömörítéssel, tömörség
                                     és
                                     teherbírás
-                                    méréssel.</small></p>
+                                    méréssel.</small>
+                                </p>
                         </span>
                         <span>
-                            <p><i>Betonacél szerelés nettó 140.- Ft + ÁFA / kg-tól</i><br><small>Szálas vagy hálós
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Betonacél szerelés</i>
+                                </p>
+                                <p>
+                                    <b>140.- Ft + ÁFA / nettó / kg-tól</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Szálas vagy hálós
                                     kiviteleben</small>
                             </p>
                         </span>
                         <span>
-                            <p><i>Betonozási munkák nettó 8.000.- Ft. + ÁFA / m3-től</i><br><small>Transzportbeton vagy
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Betonozási munkák</i>
+                                </p>
+                                <p>
+                                    <b>8.000.- Ft. + ÁFA / nettó / m3-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Transzportbeton vagy
                                     helyszínen
-                                    kevert kivitelben</small></p>
+                                    kevert kivitelben</small>
+                                </p>
                         </span>
                         <span>
-                            <p><i>Ipari padló készítése nettó 2.900.- Ft. + ÁFA / m2-től</i><br><small>Glettelt
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Ipari padló készítése</i>
+                                </p>
+                                <p>
+                                    <b>2.900.- Ft. + ÁFA / nettó / m2-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Glettelt
                                     felületben,
-                                    párazásással, dilatáció vágással és tömítéssel</small></p>
+                                    párazásással, dilatáció vágással és tömítéssel</small>
+                                </p>
                         </span>
                         <span>
-                            <p><i>Zsalukő fal készítése nettó 6.125.- Ft. + ÁFA /
-                                    m2-től</i><br><small>Betonacélszereléssel,
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Zsalukő fal készítése</i>
+                                </p>
+                                <p>
+                                    <b>6.125.- Ft. + ÁFA / nettó /
+                                        m2-től</b>
+                                    </p>
+                            </div>
+
+                                <p class="text-center">
+                                    <small>Betonacélszereléssel,
                                     kitöltő
-                                    betonozással, fejeléssel</small></p>
+                                    betonozással, fejeléssel</small>
+                                </p>
                         </span>
                         <span>
-                            <p><i>Alaplemez zsaluzása nettó 11.125.- Ft. + ÁFA / m-től</i><br><small>Építéssel,
+                            <div class="d-flex justify-content-around pb-0 ar-rows">
+                                <p>
+                                    <i>Alaplemez zsaluzása</i>
+                                </p>
+                                <p>
+                                    <b>11.125.- Ft. + ÁFA / nettó / m-től</b>
+                                </p>
+                            </div>
+
+                            <p class="text-center">
+                                <small>Építéssel,
                                     bontással</small>
                             </p>
                         </span>
